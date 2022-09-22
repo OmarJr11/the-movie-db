@@ -1,16 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { CarouselComponent } from './components';
+import { SwiperModule } from 'swiper/angular';
 
 const modules = [
-  MatSidenavModule
-]
+  MatSidenavModule,
+  MatIconModule,
+  MatButtonModule,
+  FlexLayoutModule,
+  CommonModule,
+  SwiperModule
+];
+
+const components = [
+  CarouselComponent
+];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    components
+  ],
   imports: [
     modules,
-    CommonModule
+  ],
+  exports: [
+    modules,
+    components
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,80 @@
+<div fxLayout="column"
+     fxLayoutAlign="center center"
+     fxLayoutGap="26px"
+     class="container">
+    <div class="detail"
+         fxLayout="row">
+        <div class="w-50"
+             fxLayout="row"
+             fxLayoutAlign="center center">       
+             <div ngClass="image-details"
+                  fxLayout="column">
+                <mat-icon class="add">bookmark</mat-icon>
+                <mat-icon class="share">share</mat-icon>
+                <img [src]="movie.poster_path" alt="movie.title">
+            </div>
+        </div>
+        <div ngClass="w-50 p-50"
+             fxLayout="column"
+             fxLayoutAlign="start start"
+             fxLayoutGap="12px">
+            <h2>{{movie.title}}</h2>
+            <h3 class="tagline">"{{movie.tagline}}"</h3>
+            <p>
+                {{movie.overview}}
+            </p>
+            <span>{{movie.release_date}}</span>
+
+            <div class="w-80"
+                 fxLayout="row wrap"
+                 fxLayoutGap="8px">
+                <div *ngFor="let category of movie.genres"
+                     class="category"
+                     fxLayout="row"
+                     fxLayoutAlign="center center">
+                    <span>{{category.name}}</span>
+                </div>
+            </div>
+            <div fxLayout="row"
+                 fxLayoutGap="18px">
+                <div fxLayout="row" 
+                     fxLayoutAlign="center center"
+                     fxLayoutGap="6px"
+                     class="data">
+                    <mat-icon class="star">star</mat-icon>
+                    <span class="rating">{{movie.vote_average | number: '1.0-2'}}</span>
+                </div>
+                <div fxLayout="row" 
+                     fxLayoutAlign="center center"
+                     fxLayoutGap="6px"
+                     class="data">
+                    <mat-icon class="groups">groups</mat-icon>
+                    <span class="rating">{{movie.popularity | number: '1.0-2'}}</span>
+                </div>
+            </div>
+            <div fxLayout="column"
+                 fxLayoutGap="8px">
+                <span>Production companies</span>
+                <div fxLayout="row"
+                     fxLayoutGap="10px">
+                    <div fxLayout="row" 
+                         fxLayoutAlign="center center"
+                         *ngFor="let company of movie.production_companies"
+                         class="company">
+                        <img [src]="getImageCompany(company.logo_path)" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="movies-similar">
+        <h3>
+            Movies similar
+        </h3>
+        <app-carousel [movies]="movies"
+                      [mouseover]="false"
+                      [isMovie]="true"
+                      (goToMovie)="goToMovie($event)">
+        </app-carousel>
+    </div>
+</div>

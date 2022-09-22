@@ -1,0 +1,122 @@
+:host ::ng-deep {
+    .container {
+        width: 100% !important;
+        height: 450px !important;
+    }
+
+    .poster {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative;
+        img {
+            top: 0 !important;
+            width: 100%;
+            height: 100%;
+        }
+
+        h2 {
+            font-size: 2.5rem !important;
+            position: absolute;
+            bottom: 60% !important;
+            left: 6% !important;
+            z-index: 100 !important;
+            color: white;
+        }
+
+        span {
+            font-size: .8rem;
+            position: absolute;
+            bottom: 58% !important;
+            left: 6% !important;
+            color: white;
+        }
+
+        button {
+            position: absolute;
+            width: 160px !important;
+            height: 34px !important;
+            bottom: 26% !important;
+            border-radius: 3px !important;
+            left: 6% !important;
+            z-index: 100 !important;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+
+            span {
+                font-size: 14px !important;
+                font-weight: 500 !important;
+            }
+        }
+    }
+
+    .carousel-container {
+        position: relative !important;
+        bottom: 16% !important;
+        height: 185px !important;
+        width: 100% !important;
+    }
+
+    .w-100 {
+        width: 100% !important;
+    }
+
+    .carousel-home{
+        position: relative;
+        bottom: 30% !important;
+    }
+
+    .mt-126 {
+        margin-top: 126px !important;
+    }
+
+    h3 {
+        padding-left: 60px !important;
+        color: white !important;
+        font-size: 18px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .movies-most-acclaimed {
+        width: 100% !important;
+        height: 450px !important;
+        margin-top: 16px !important;
+
+        h3 {
+            padding: 0px !important;
+            color: white !important;
+            font-size: 22px !important;
+            margin-bottom: 22px !important;
+        }
+
+        .padding {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+    }
+
+    .most-acclaimed {
+        width: 220px;
+        height: 340px;
+        border-radius: 5px;
+        background-color: black;
+
+        .image-movie {
+            height: 100% !important;
+            width: 100% !important;
+            border-radius: 5px !important;
+        }
+
+        &:hover {
+            background: black !important;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            transition: all ease-in-out 0.2s;
+            img {
+                border: 3px solid white !important;
+                transition: all ease-in-out 0.2s;
+            }
+        }
+    }
+}

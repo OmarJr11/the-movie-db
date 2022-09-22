@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="poster"
+         fxLayout="column">
+        <img [src]="searchImage(mostPopular)" [alt]="mostPopular.title">
+        <h2>
+            {{mostPopular.title}}
+        </h2>
+        <span>
+            Average: {{mostPopular.vote_average}} |  Fecha: {{mostPopular.release_date}}
+        </span>
+        <div class="carousel-home">
+            <app-carousel [movies]="moviesTopRated"
+                          [mouseover]="true"
+                          [isMovie]="true"
+                          (selectedMovie)="selectMovie($event)"
+                          (goToMovie)="goToMovie($event)">
+            </app-carousel>
+        </div>
+    </div>
+
+    <div class="movies-popular mt-126">
+        <h3>
+            Movies Popular
+        </h3>
+        <app-carousel [movies]="moviesPopular"
+                      [mouseover]="false"
+                      [isMovie]="true"
+                      (selectedMovie)="selectMovie($event)"
+                      (goToMovie)="goToMovie($event)">
+        </app-carousel>
+    </div>
+    <div class="tv-series-popular">
+        <h3>
+            Tv Series Popular
+        </h3>
+        <app-carousel [movies]="tvSeriesPopular"
+                      [mouseover]="false"
+                      [isMovie]="false"
+                      (selectedMovie)="selectMovie($event)"
+                      (goToMovie)="goToMovie($event)">
+        </app-carousel>
+    </div>
+    <div class="movies-most-acclaimed"
+         fxLayout="column" 
+         fxLayoutAlign="start center">
+        <h3>
+            Most acclaimed movies
+        </h3>
+        <div fxLayout="row" 
+             fxLayoutAlign="center center"
+             fxLayoutGap="24px"
+             class="padding">
+            <div class="most-acclaimed"
+                 fxLayout="row"
+                 *ngFor="let movie of moviesUpcoming">
+                <img class="image-movie mat-elevation-z8" 
+                     [src]="searchImagePosterPath(movie)"
+                     alt="movie.title">
+            </div>
+        </div>
+    </div>
+</div>
