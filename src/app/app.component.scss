@@ -1,0 +1,4 @@
+@import '../styles.scss';
+:host ::ng-deep {
+    background-color: rgb(14, 11, 19) !important;
+}

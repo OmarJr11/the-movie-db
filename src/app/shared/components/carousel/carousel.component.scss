@@ -1,0 +1,45 @@
+@import '../../../../styles.scss';
+
+:host ::ng-deep {
+
+    .swiper {
+        width: 100% !important;
+        height: 250px !important;
+        box-sizing: border-box;
+        padding: 0px 60px;
+
+        .item-carousel {
+            width: 174px !important;
+            background: black !important;
+            border-radius: 6px;
+            height: 240px !important;
+            cursor: pointer;
+
+            .image-carousel {
+                height: 100% !important;
+                width: 100% !important;
+                border-radius: 5px !important;
+            }
+    
+            &:hover {
+                background: black !important;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                transition: all ease-in-out 0.2s;
+                img {
+                    border: 3px solid white !important;
+                    transition: all ease-in-out 0.2s;
+                }
+            }
+        }
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        color: white !important;
+    }
+
+    .swiper-button-disabled {
+        opacity: 0 !important;
+    }
+}

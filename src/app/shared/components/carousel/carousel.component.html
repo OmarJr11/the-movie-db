@@ -1,0 +1,14 @@
+<swiper class="swiper"
+        [config]="config"
+        (swiper)="onSwiper($event)"
+        (slideChange)="onSlideChange()">
+     <ng-template swiperSlide
+                    class="item-carousel"
+                    *ngFor="let movie of movies">
+          <img class="image-carousel mat-elevation-z8" 
+               [src]="searchImage(movie)"
+               alt="movie.title"
+               (mouseover)="selectMovie(movie)"
+               (click)="goToMovieEmit(movie)">
+     </ng-template>
+</swiper>

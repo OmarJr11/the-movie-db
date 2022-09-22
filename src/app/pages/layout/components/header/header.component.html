@@ -1,0 +1,54 @@
+<div ngClass="content-container"
+     ngClass.xs="content-container-xs"
+     fxLayout="column">
+    <div fxLayout="row"
+         class="header"
+         fxLayoutAlign="start center"
+         fxLayoutAlign.xs="space-between center"
+         fxLayoutGap="10px">
+        <!-- HEADER LOGO -->
+        <div ngClass="image-container"
+             ngClass.xs="image-container-xs">
+            <a class="pointer"
+                fxLayout="row "
+                [routerLink]="">
+                <div class="image">
+                    <img class="w-80 pointer category-icon"
+                            ngClass.xs="mt-10"
+                            [src]="logo" />
+                </div>
+            </a>
+        </div>
+
+        <!-- Header Views -->
+        <div class="header-views"
+             fxLayout="row"
+             fxLayoutAlign="center center"
+             fxLayoutAlign.xs="end center"
+             fxLayoutGap="20px"
+             fxLayoutGap.xs="10px">
+            <div *ngFor="let route of routes">
+                <a class="pointer"
+                   fxLayout="row "
+                   [routerLink]="route.path">
+                    <span ngClass.xs="text-xs">{{route.name}}</span>
+                </a>
+            </div>   
+        </div>
+    </div>
+
+    <div class="header-search"
+         fxLayout="row"
+         fxLayoutAlign="center center">
+        <div class="search"
+             fxLayout="row"
+             fxLayoutAlign="center center">
+            <div class="icon pointer">
+                <mat-icon>search</mat-icon>
+            </div>
+            <input type="text" placeholder="Search Movies or Tv series" ngClass.xs="text-xs">
+        </div>
+
+    </div>
+
+</div>
