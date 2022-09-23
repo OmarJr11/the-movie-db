@@ -9,11 +9,11 @@ export class HeaderComponent implements OnInit {
   logo: string = 'assets/images/logo.svg';
   routes = [
     {
-      path: '/tv/popular',
+      path: '/movies',
       name: 'Movies'
     },
     {
-      path: '/tv/popular',
+      path: '/tv-series',
       name: 'Tv series'
     },
     {

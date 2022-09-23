@@ -1,7 +1,6 @@
 @import '../../../../styles.scss';
 
 :host ::ng-deep {
-
     .swiper {
         width: 100% !important;
         height: 250px !important;
@@ -10,7 +9,7 @@
 
         .item-carousel {
             width: 174px !important;
-            background: black !important;
+            background: $background-color !important;
             border-radius: 6px;
             height: 240px !important;
             cursor: pointer;
@@ -22,15 +21,8 @@
             }
     
             &:hover {
-                background: black !important;
-                box-shadow: none;
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
                 transition: all ease-in-out 0.2s;
-                img {
-                    border: 3px solid white !important;
-                    transition: all ease-in-out 0.2s;
-                }
+                border: 3px solid white !important;
             }
         }
     }

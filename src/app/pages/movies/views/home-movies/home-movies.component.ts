@@ -5,17 +5,15 @@ import { TheMovieDbService } from 'src/app/core';
 import { Movie } from 'src/app/core/models/movie.model';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-home-movies',
+  templateUrl: './home-movies.component.html',
+  styleUrls: ['./home-movies.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeMoviesComponent implements OnInit {
   mostPopular!: Movie;
   moviesTopRated!: Movie[];
   moviesPopular!: Movie[];
   moviesUpcoming!: Movie[];
-  tvSeriesUpcoming!: Movie[];
-  tvSeriesPopular!: Movie[];
 
   private readonly urlImage = 'https://image.tmdb.org/t/p/original';
   private _subscription: Subscription = new Subscription();
@@ -33,9 +31,7 @@ export class HomeComponent implements OnInit {
           this.mostPopular = response.results[0];
           this.mostPopular.backdrop_path = this.urlImage + this.mostPopular.backdrop_path;
           this.getMoviesPopular();
-          this.getTvPopular();
           this.getMoviesUpcoming();
-          this.getTvSeriesUpcoming();
         }
       })
     );
@@ -51,31 +47,11 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getTvPopular() {
-    this._subscription.add(
-      this.apiTheMoviesDB.getTvPopular().subscribe({
-        next: (response) => {
-          this.tvSeriesPopular = response.results.slice(0, 10);          
-        }
-      })
-    );
-  }
-
   getMoviesUpcoming() {
     this._subscription.add(
       this.apiTheMoviesDB.getUpcoming().subscribe({
         next: (response) => {
           this.moviesUpcoming = response.results.slice(0, 4);          
-        }
-      })
-    );
-  }
-
-  getTvSeriesUpcoming() {
-    this._subscription.add(
-      this.apiTheMoviesDB.getTvSeriesUpcoming().subscribe({
-        next: (response) => {
-          this.tvSeriesUpcoming = response.results.slice(0, 4);          
         }
       })
     );
@@ -88,8 +64,6 @@ export class HomeComponent implements OnInit {
   goToMovie(item: any) {    
     if(item.isMovie) {
       this._router.navigate(['/movie', item.movie.id]);
-    } else {
-      this._router.navigate(['/tv-series', item.movie.id]);
     }
   }
 

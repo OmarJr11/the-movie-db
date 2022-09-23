@@ -7,15 +7,16 @@
          fxLayoutAlign.xs="space-between center"
          fxLayoutGap="10px">
         <!-- HEADER LOGO -->
-        <div ngClass="image-container"
+        <div class="mat-elevation-z2"
+             ngClass="image-container"
              ngClass.xs="image-container-xs">
             <a class="pointer"
                 fxLayout="row "
-                [routerLink]="">
+                [routerLink]="['/']">
                 <div class="image">
                     <img class="w-80 pointer category-icon"
                             ngClass.xs="mt-10"
-                            [src]="logo" />
+                            [src]="logo"/>
                 </div>
             </a>
         </div>

@@ -23,17 +23,6 @@
                       (goToMovie)="goToMovie($event)">
         </app-carousel>
     </div>
-    <div class="tv-series-popular">
-        <h3>
-            Tv Series Popular
-        </h3>
-        <app-carousel [movies]="tvSeriesPopular"
-                      [mouseover]="false"
-                      [isMovie]="false"
-                      (selectedMovie)="selectMovie($event)"
-                      (goToMovie)="goToMovie($event)">
-        </app-carousel>
-    </div>
     <div class="movies-most-acclaimed"
          fxLayout="column" 
          fxLayoutAlign="start center">
@@ -58,49 +47,6 @@
             </div>
         </div>
         <ng-template #elseBlock>
-            <div fxLayout="row wrap" 
-                 fxLayoutAlign="center center"
-                 fxLayoutGap="24px"
-                 class="w-100">
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-            </div>
-        </ng-template>
-    </div>
-    <div class="movies-most-acclaimed"
-         fxLayout="column" 
-         fxLayoutAlign="start center">
-        <h3>
-            Most acclaimed Tv Series
-        </h3>
-        <div fxLayout="row wrap" 
-             fxLayoutAlign="center center"
-             fxLayoutGap="24px"
-             class="padding"
-             *ngIf="tvSeriesUpcoming; else series">
-            <div class="most-acclaimed mat-elevation-z2"
-                 fxLayout="row"
-                 *ngFor="let movie of tvSeriesUpcoming">
-                <div class="w-100 h-100"
-                     fxLayout="row"
-                     fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer" 
-                         [src]="searchImagePosterPath(movie)"
-                         (click)="goToMovie({movie: movie, isMovie: false})">
-                </div>
-            </div>
-        </div>
-        <ng-template #series>
             <div fxLayout="row wrap" 
                  fxLayoutAlign="center center"
                  fxLayoutGap="24px"
