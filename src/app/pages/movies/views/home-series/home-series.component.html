@@ -3,7 +3,7 @@
          fxLayout="column">
         <img [src]="searchImage(mostPopular)" [alt]="mostPopular.title">
         <div class="carousel-home">
-            <app-carousel [movies]="moviesTopRated"
+            <app-carousel [movies]="tvSeriesTopRated"
                           [mouseover]="true"
                           [isMovie]="true"
                           (selectedMovie)="selectMovie($event)"
@@ -11,19 +11,7 @@
             </app-carousel>
         </div>
     </div>
-
-    <div class="movies-popular mt-126">
-        <h3>
-            Movies Popular
-        </h3>
-        <app-carousel [movies]="moviesPopular"
-                      [mouseover]="false"
-                      [isMovie]="true"
-                      (selectedMovie)="selectMovie($event)"
-                      (goToMovie)="goToMovie($event)">
-        </app-carousel>
-    </div>
-    <div class="tv-series-popular">
+    <div class="tv-series-popular  mt-126">
         <h3>
             Tv Series Popular
         </h3>
@@ -33,49 +21,6 @@
                       (selectedMovie)="selectMovie($event)"
                       (goToMovie)="goToMovie($event)">
         </app-carousel>
-    </div>
-    <div class="movies-most-acclaimed"
-         fxLayout="column" 
-         fxLayoutAlign="start center">
-        <h3>
-            Most acclaimed movies
-        </h3>
-        <div fxLayout="row wrap" 
-             fxLayoutAlign="center center"
-             fxLayoutGap="24px"
-             class="padding"
-             *ngIf="moviesUpcoming; else elseBlock">
-            <div class="most-acclaimed mat-elevation-z2"
-                 fxLayout="row"
-                 *ngFor="let movie of moviesUpcoming">
-                <div class="w-100 h-100"
-                     fxLayout="row"
-                     fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer" 
-                         [src]="searchImagePosterPath(movie)"
-                         (click)="goToMovie({movie: movie, isMovie: true})">
-                </div>
-            </div>
-        </div>
-        <ng-template #elseBlock>
-            <div fxLayout="row wrap" 
-                 fxLayoutAlign="center center"
-                 fxLayoutGap="24px"
-                 class="w-100">
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-            </div>
-        </ng-template>
     </div>
     <div class="movies-most-acclaimed"
          fxLayout="column" 

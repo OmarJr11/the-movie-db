@@ -6,10 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule, FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared';
+import { MyListComponent } from './pages/my-list/views/my-list/my-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyListComponent
   ],
   imports: [
     BrowserModule,

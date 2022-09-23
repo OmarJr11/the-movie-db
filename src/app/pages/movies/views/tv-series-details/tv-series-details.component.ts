@@ -5,11 +5,11 @@ import { TheMovieDbService } from 'src/app/core';
 import { Movie } from 'src/app/core/models/movie.model';
 
 @Component({
-  selector: 'app-movie-details',
-  templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.scss']
+  selector: 'app-tv-series-details',
+  templateUrl: './tv-series-details.component.html',
+  styleUrls: ['./tv-series-details.component.scss']
 })
-export class MovieDetailsComponent implements OnInit {
+export class TvSeriesDetailsComponent implements OnInit {
   movie!: Movie;
   movies!: Movie[];
   id: number = Number(this._activatedRoute.snapshot.paramMap.get('id'));
@@ -24,19 +24,12 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._subscription.add(
-      this.apiTheMoviesDB.getMovieById(this.id).subscribe({
+      this.apiTheMoviesDB.getTvSerieById(this.id).subscribe({
         next: (response) => {
           this.movie = response;
-          this.movie.poster_path = this.imageUrl + this.movie.poster_path;
-        }
-      })
-    );
-
-    this._subscription.add(
-      this.apiTheMoviesDB.getMoviesSimilar(this.id).subscribe({
-        next: (response) => {
-          this.movies = response.results.slice(0, 10);
-          console.log(this.movies);
+          console.log(this.movie);
+          
+          this.getMoviesSimilar();
         }
       })
     );
@@ -48,7 +41,17 @@ export class MovieDetailsComponent implements OnInit {
     }
   }
 
-  getImageCompany(path: string) {
-    return this.imageUrl + path;
+  searchImage() {
+    return this.imageUrl + this.movie.poster_path;
+  }
+
+  private getMoviesSimilar() {
+    this._subscription.add(
+      this.apiTheMoviesDB.getMoviesSimilar(this.id).subscribe({
+        next: (response) => {
+          this.movies = response.results.slice(0, 10);
+        }
+      })
+    );
   }
 }

@@ -1,8 +1,8 @@
-@import '../../../../assets/scss/themes/variables.scss';
+@import '../../../../../assets/scss/themes/variables.scss';
 
 :host ::ng-deep {
     .container {
-        background-color: #161518 !important;
+        background-color: #18171a !important;
     }
 
     .details {
@@ -11,7 +11,7 @@
         padding: 20px !important;
     }
 
-    img {
+    .img {
         width: 100% !important;
         height: 100% !important;
         border-radius: 6px !important;
@@ -49,15 +49,17 @@
     }
 
     .image-details {
-        width: 430px !important;
+        width: 410px !important;
         height: 470px !important;
         margin-top: 22px !important;
         position: relative;
+        border-radius: 6px !important;
     }
 
     .category {
         min-width: 60px !important;
         height: 25px !important;
+        padding: 0px 10px;
         background-color: $main-color!important;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
@@ -143,7 +145,7 @@
 
     .movies-similar {
         width: 100% !important;
-        height: 320px !important;
+        height: 340px !important;
         margin-top: 16px !important;
 
         h3 {
@@ -157,5 +159,9 @@
             width: 100% !important;
             box-sizing: border-box !important;
         }
+    }
+
+    .date {
+        color:  $main-color !important;
     }
 }

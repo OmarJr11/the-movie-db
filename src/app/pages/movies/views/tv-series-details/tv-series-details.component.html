@@ -8,28 +8,40 @@
              fxLayout="row"
              fxLayoutAlign="center center">       
              <div ngClass="image-details"
-                  fxLayout="column">
-                <mat-icon class="add">bookmark</mat-icon>
-                <mat-icon class="share">share</mat-icon>
-                <img [src]="movie.poster_path" alt="movie.title">
+                  class="mat-elevation-z2"
+                  fxLayout="column"
+                  fxLayoutAlign="center center">
+                <mat-icon *ngIf="movie" class="add">bookmark</mat-icon>
+                <mat-icon *ngIf="movie" class="share">share</mat-icon>
+                <img class="mat-elevation-z2 img" 
+                     [src]="searchImage()"
+                     appImageLoading>
             </div>
         </div>
         <div ngClass="w-50 p-50"
              fxLayout="column"
              fxLayoutAlign="start start"
              fxLayoutGap="12px">
-            <h2>{{movie.title}}</h2>
-            <h3 class="tagline">"{{movie.tagline}}"</h3>
+            <h2>{{movie.original_name}}</h2>
+            <h3 *ngIf="movie.tagline" class="tagline">"{{movie.tagline}}"</h3>
+            <div class="category default"
+                 fxLayout="row"
+                 fxLayoutAlign="center center"
+                 *ngIf="movie.in_production">
+                <span>in broadcast</span>
+            </div>
             <p>
                 {{movie.overview}}
             </p>
-            <span>{{movie.release_date}}</span>
-
+            <div>
+                <span *ngIf="movie.in_production">First air date: {{movie.first_air_date}} </span>
+                <span *ngIf="!movie.in_production">Last air date: {{movie.last_air_date}}</span>
+            </div>
             <div class="w-80"
                  fxLayout="row wrap"
                  fxLayoutGap="8px">
                 <div *ngFor="let category of movie.genres"
-                     class="category"
+                     class="category default"
                      fxLayout="row"
                      fxLayoutAlign="center center">
                     <span>{{category.name}}</span>
@@ -50,19 +62,6 @@
                      class="data">
                     <mat-icon class="groups">groups</mat-icon>
                     <span class="rating">{{movie.popularity | number: '1.0-2'}}</span>
-                </div>
-            </div>
-            <div fxLayout="column"
-                 fxLayoutGap="8px">
-                <span>Production companies</span>
-                <div fxLayout="row"
-                     fxLayoutGap="10px">
-                    <div fxLayout="row" 
-                         fxLayoutAlign="center center"
-                         *ngFor="let company of movie.production_companies"
-                         class="company">
-                        <img [src]="getImageCompany(company.logo_path)" alt="">
-                    </div>
                 </div>
             </div>
         </div>

@@ -5,15 +5,13 @@ import { TheMovieDbService } from 'src/app/core';
 import { Movie } from 'src/app/core/models/movie.model';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-home-series',
+  templateUrl: './home-series.component.html',
+  styleUrls: ['./home-series.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeSeriesComponent implements OnInit {
   mostPopular!: Movie;
-  moviesTopRated!: Movie[];
-  moviesPopular!: Movie[];
-  moviesUpcoming!: Movie[];
+  tvSeriesTopRated!: Movie[];
   tvSeriesUpcoming!: Movie[];
   tvSeriesPopular!: Movie[];
 
@@ -27,25 +25,13 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(): void {
     this._subscription.add(
-      this.apiTheMoviesDB.getNowPlaying().subscribe({
+      this.apiTheMoviesDB.getAiringToday().subscribe({
         next: (response) => {
-          this.moviesTopRated = response.results.slice(0, 10);
+          this.tvSeriesTopRated = response.results.slice(0, 10);
           this.mostPopular = response.results[0];
           this.mostPopular.backdrop_path = this.urlImage + this.mostPopular.backdrop_path;
-          this.getMoviesPopular();
           this.getTvPopular();
-          this.getMoviesUpcoming();
           this.getTvSeriesUpcoming();
-        }
-      })
-    );
-  }
-
-  getMoviesPopular() {
-    this._subscription.add(
-      this.apiTheMoviesDB.getMoviesPopular().subscribe({
-        next: (response) => {
-          this.moviesPopular = response.results.slice(0, 10);        
         }
       })
     );
@@ -56,16 +42,6 @@ export class HomeComponent implements OnInit {
       this.apiTheMoviesDB.getTvPopular().subscribe({
         next: (response) => {
           this.tvSeriesPopular = response.results.slice(0, 10);          
-        }
-      })
-    );
-  }
-
-  getMoviesUpcoming() {
-    this._subscription.add(
-      this.apiTheMoviesDB.getUpcoming().subscribe({
-        next: (response) => {
-          this.moviesUpcoming = response.results.slice(0, 4);          
         }
       })
     );
@@ -86,9 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   goToMovie(item: any) {    
-    if(item.isMovie) {
-      this._router.navigate(['/movie', item.movie.id]);
-    } else {
+    if(!item.isMovie) {
       this._router.navigate(['/tv-series', item.movie.id]);
     }
   }

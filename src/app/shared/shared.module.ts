@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { CarouselComponent } from './components';
 import { SwiperModule } from 'swiper/angular';
+import { ImageLoadingDirective } from './directives/image-loading.directive';
 
 const modules = [
   MatSidenavModule,
@@ -20,16 +21,22 @@ const components = [
   CarouselComponent
 ];
 
+const directives = [
+  ImageLoadingDirective
+];
+
 @NgModule({
   declarations: [
-    components
+    components,
+    ImageLoadingDirective
   ],
   imports: [
     modules,
   ],
   exports: [
     modules,
-    components
+    components,
+    directives,
   ]
 })
 export class SharedModule { }

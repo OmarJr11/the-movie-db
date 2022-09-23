@@ -14,6 +14,10 @@ export class TheMovieDbService {
     return this._http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=b3eff2fcae58daac15989c11c538144d`)
   }
 
+  getAiringToday(): Observable<any> {
+    return this._http.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=b3eff2fcae58daac15989c11c538144d`)
+  }
+
   getMoviesPopular(): Observable<any> {
     return this._http.get(`https://api.themoviedb.org/3/movie/popular?api_key=b3eff2fcae58daac15989c11c538144d`)
   }
@@ -22,8 +26,16 @@ export class TheMovieDbService {
     return this._http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=b3eff2fcae58daac15989c11c538144d`)
   }
 
+  getTvSeriesUpcoming(): Observable<any> {
+    return this._http.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=b3eff2fcae58daac15989c11c538144d`)
+  }
+
   getMovieById(id: number): Observable<any> {
     return this._http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=b3eff2fcae58daac15989c11c538144d`)
+  }
+
+  getTvSerieById(id: number): Observable<any> {
+    return this._http.get(`https://api.themoviedb.org/3/tv/${id}?api_key=b3eff2fcae58daac15989c11c538144d`)
   }
 
   getMoviesSimilar(id: number): Observable<any> {

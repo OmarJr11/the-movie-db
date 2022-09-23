@@ -42,12 +42,4 @@ export class CarouselComponent implements OnInit {
   searchImage(movie: Movie) {
     return 'https://image.tmdb.org/t/p/original' + movie.poster_path
   }
-  
-  onSwiper(swiper: any) {
-    console.log([swiper]);
-  }
-
-  onSlideChange() {
-    console.log('slide change');
-  }
 }
