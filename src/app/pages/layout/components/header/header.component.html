@@ -5,51 +5,50 @@
          class="header"
          fxLayoutAlign="start center"
          fxLayoutAlign.xs="space-between center"
-         fxLayoutGap="10px">
+         fxLayoutGap="30px">
         <!-- HEADER LOGO -->
-        <div class="mat-elevation-z2"
-             ngClass="image-container"
+        <div ngClass="image-container"
              ngClass.xs="image-container-xs">
             <a class="pointer"
-                fxLayout="row "
-                [routerLink]="['/']">
+               fxLayout="row "
+               [routerLink]="['/']">
                 <div class="image">
                     <img class="w-80 pointer category-icon"
-                            ngClass.xs="mt-10"
-                            [src]="logo"/>
+                         ngClass.xs="mt-10"
+                         [src]="logo"/>
                 </div>
             </a>
         </div>
-
         <!-- Header Views -->
         <div class="header-views"
              fxLayout="row"
              fxLayoutAlign="center center"
              fxLayoutAlign.xs="end center"
-             fxLayoutGap="20px"
+             fxLayoutGap="30px"
              fxLayoutGap.xs="10px">
             <div *ngFor="let route of routes">
                 <a class="pointer"
-                   fxLayout="row "
-                   [routerLink]="route.path">
-                    <span ngClass.xs="text-xs">{{route.name}}</span>
+                    fxLayout="row "
+                    [routerLink]="route.path">
+                    <span ngClass="text-15" ngClass.xs="text-xs">{{route.name}}</span>
                 </a>
             </div>   
         </div>
-    </div>
-
-    <div class="header-search"
-         fxLayout="row"
-         fxLayoutAlign="center center">
-        <div class="search"
+        <!--Header Search-->
+        <div class="header-search"
              fxLayout="row"
-             fxLayoutAlign="center center">
-            <div class="icon pointer">
+             fxLayoutAlign="space-around center">
+            <div class="icon pointer"
+                 fxLayout="row"
+                 fxLayoutAlign="center center"
+                 (click)="searchClick()">
                 <mat-icon>search</mat-icon>
             </div>
-            <input type="text" placeholder="Search Movies or Tv series" ngClass.xs="text-xs">
+            <input type="text" 
+                   placeholder="Search Movies or Tv series"
+                   ngClass.xs="text-xs"
+                   [(ngModel)]="search"
+                   (keydown)="searchKeydown($event)">
         </div>
-
     </div>
-
 </div>

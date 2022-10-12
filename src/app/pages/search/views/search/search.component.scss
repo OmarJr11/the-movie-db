@@ -1,0 +1,33 @@
+@import '../../../../../assets/scss/themes/variables.scss';
+
+:host ::ng-deep {
+    h3 {
+        margin: 0px !important;
+        font-size: 25px !important;
+        color: $secondary-color !important;
+    }
+
+    .h-85p {
+        height: 85px !important;
+    }
+
+    .pb-30 {
+        padding-bottom: 30px !important;
+    }
+
+    .movies-search {
+        width: 1200px !important;
+        padding: 0px 30px !important;
+    }
+
+    .movie-card {
+        width: 200px !important;
+        height: 280px !important;
+        margin: 0px 0px 24px 24px !important;
+        border-radius: 12px !important;
+    }
+
+    .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: $main-color !important;
+    }
+}

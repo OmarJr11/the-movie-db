@@ -40,7 +40,8 @@
                 <div class="w-100 h-100"
                      fxLayout="row"
                      fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer" 
+                    <img class="img mat-elevation-z2 pointer"
+                         appImageLoading
                          [src]="searchImagePosterPath(movie)"
                          (click)="goToMovie({movie: movie, isMovie: true})">
                 </div>

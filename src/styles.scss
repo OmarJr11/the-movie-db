@@ -22,10 +22,15 @@ html, body {
 
 span, p, h1, h2, h3, h4, h5 {
     font-family: Roboto, "Helvetica Neue", sans-serif; 
+    color: white !important;
 }
 
-span {
-    color: white !important;
+.text-center {
+    text-align: center !important;
+}
+
+.text-15 {
+    font-size: 15px !important;
 }
 
 .pointer {
@@ -47,9 +52,6 @@ span {
 } 
 
 .skeleton {
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 6px !important;
     animation-name: skeleton;
     animation-duration: 1s;
     animation-direction: alternate;

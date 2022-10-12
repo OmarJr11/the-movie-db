@@ -45,4 +45,16 @@ export class TheMovieDbService {
   getTvPopular(): Observable<any> {
     return this._http.get(`https://api.themoviedb.org/3/tv/popular?api_key=b3eff2fcae58daac15989c11c538144d`)
   }
+
+  searchMulti(search: string, page: number): Observable<any> {
+    return this._http.get(
+      `https://api.themoviedb.org/3/search/multi?api_key=b3eff2fcae58daac15989c11c538144d`,
+      {
+        params: {
+          query: search,
+          page,
+        } 
+      }
+    );
+  }
 }
