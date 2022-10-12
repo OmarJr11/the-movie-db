@@ -25,4 +25,5 @@ export interface Movie {
         }
     ];
     in_production: boolean;
+    media_type: string;
 }

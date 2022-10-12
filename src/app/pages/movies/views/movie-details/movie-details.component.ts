@@ -14,19 +14,23 @@ export class MovieDetailsComponent implements OnInit {
   movies!: Movie[];
   id: number = Number(this._activatedRoute.snapshot.paramMap.get('id'));
   imageUrl: string = 'https://image.tmdb.org/t/p/original';
+  spinner: boolean = false;
+  
   private _subscription: Subscription = new Subscription();
 
   constructor(
     private readonly apiTheMoviesDB: TheMovieDbService,
-    private _activatedRoute: ActivatedRoute,
+    private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
   ) { }
 
   ngOnInit(): void {
+    this.spinner = true;
     this._subscription.add(
       this.apiTheMoviesDB.getMovieById(this.id).subscribe({
         next: (response) => {
-          this.movie = response;          
+          this.spinner = false;
+          this.movie = response;
           this.getMoviesSimilar();
         }
       })

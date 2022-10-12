@@ -7,6 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { CarouselComponent } from './components';
 import { SwiperModule } from 'swiper/angular';
 import { ImageLoadingDirective } from './directives/image-loading.directive';
+import { FormsModule } from '@angular/forms';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const modules = [
   MatSidenavModule,
@@ -14,11 +17,14 @@ const modules = [
   MatButtonModule,
   FlexLayoutModule,
   CommonModule,
-  SwiperModule
+  SwiperModule,
+  FormsModule,
+  MatProgressSpinnerModule,
 ];
 
 const components = [
-  CarouselComponent
+  CarouselComponent,
+  MovieCardComponent
 ];
 
 const directives = [
@@ -28,7 +34,7 @@ const directives = [
 @NgModule({
   declarations: [
     components,
-    ImageLoadingDirective
+    directives,
   ],
   imports: [
     modules,

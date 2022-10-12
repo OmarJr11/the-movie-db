@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home';
 import { HomeSeriesComponent, MovieDetailsComponent, TvSeriesDetailsComponent } from '../movies';
 import { HomeMoviesComponent } from '../movies/views/home-movies/home-movies.component';
+import { SearchComponent } from '../search';
 import { LayoutComponent } from './views';
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
       },
       {
         path: 'movies',

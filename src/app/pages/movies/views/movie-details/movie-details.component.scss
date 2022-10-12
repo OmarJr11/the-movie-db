@@ -5,6 +5,11 @@
         background-color: #18171a !important;
     }
 
+    .spinner {
+        width: 100% !important;
+        height: 400px !important;
+    }
+
     .details {
         width: 100% !important;
         height: 600px !important;
@@ -163,5 +168,9 @@
 
     .date {
         color:  $main-color !important;
+    }
+
+    .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: $main-color !important;
     }
 }

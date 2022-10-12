@@ -1,7 +1,8 @@
 <div fxLayout="column"
      fxLayoutAlign="center center"
      fxLayoutGap="26px"
-     class="container">
+     class="container"
+     *ngIf="!spinner">
     <div class="detail"
          fxLayout="row">
         <div class="w-50"
@@ -76,4 +77,12 @@
                       (goToMovie)="goToMovie($event)">
         </app-carousel>
     </div>
+</div>
+<div class="spinner"
+     fxLayout="row"
+     fxLayoutAlign="center center"
+     *ngIf="spinner">
+    <mat-spinner [diameter]="90"
+                [strokeWidth]="6">
+    </mat-spinner>
 </div>

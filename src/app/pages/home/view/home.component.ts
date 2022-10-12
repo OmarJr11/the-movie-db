@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   moviesUpcoming!: Movie[];
   tvSeriesUpcoming!: Movie[];
   tvSeriesPopular!: Movie[];
+  attempt: boolean = false;
 
   private readonly urlImage = 'https://image.tmdb.org/t/p/original';
   private _subscription: Subscription = new Subscription();
@@ -26,12 +27,14 @@ export class HomeComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
+    this.attempt = true;
     this._subscription.add(
       this.apiTheMoviesDB.getNowPlaying().subscribe({
         next: (response) => {
           this.moviesTopRated = response.results.slice(0, 10);
           this.mostPopular = response.results[0];
           this.mostPopular.backdrop_path = this.urlImage + this.mostPopular.backdrop_path;
+          this.attempt = false;
           this.getMoviesPopular();
           this.getTvPopular();
           this.getMoviesUpcoming();

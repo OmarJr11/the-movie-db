@@ -11,7 +11,7 @@ import { MyListComponent } from './pages/my-list/views/my-list/my-list.component
 @NgModule({
   declarations: [
     AppComponent,
-    MyListComponent
+    MyListComponent,
   ],
   imports: [
     BrowserModule,

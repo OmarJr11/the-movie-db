@@ -2,9 +2,16 @@
 
 :host ::ng-deep {
     .container {
-        width: 100%;
-        height: 100% !important;
+        width: 100% !important;
         background-color: #161518 !important;
+    }
+
+    .header-container {
+        position: sticky !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: 72px !important;
+        z-index: 10000 !important;
     }
 }
 

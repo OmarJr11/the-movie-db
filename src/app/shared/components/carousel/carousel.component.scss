@@ -10,19 +10,21 @@
         .item-carousel {
             width: 174px !important;
             background: $background-color !important;
-            border-radius: 6px;
+            border-radius: 8px !important;
             height: 240px !important;
             cursor: pointer;
 
             .image-carousel {
                 height: 100% !important;
                 width: 100% !important;
-                border-radius: 5px !important;
+                border-radius: 8px !important;
             }
     
             &:hover {
-                transition: all ease-in-out 0.2s;
-                border: 3px solid white !important;
+                .image-carousel {
+                    border: 3px solid white !important;
+                    transition: all ease-in-out 0.1s;
+                }
             }
         }
     }

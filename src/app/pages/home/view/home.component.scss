@@ -1,20 +1,25 @@
 @import './../../../../styles.scss';
 
 :host ::ng-deep {
-    .container {
+    .home-container {
         width: 100% !important;
-        height: 450px !important;
         background-color: #161518 !important;
     }
 
     .poster {
         width: 100% !important;
-        height: 100% !important;
+        height: 450px !important;
         position: relative;
+        
+        .h-450p {
+            height: 450px !important;
+        }
+        
         img {
             top: 0 !important;
             width: 100%;
             height: 100%;
+            border-radius: 0px !important;
         }
 
         h2 {
@@ -82,7 +87,7 @@
 
     .movies-most-acclaimed {
         width: 100% !important;
-        height: 450px !important;
+        height: 420px !important;
         margin-top: 16px !important;
         background-color: #161518 !important;
 
@@ -122,4 +127,7 @@
         border-radius: 5px !important;
     }
 
+    .mb-10 {
+        margin-bottom: 16px !important;
+    }
 }

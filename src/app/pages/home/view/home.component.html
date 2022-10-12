@@ -1,7 +1,14 @@
-<div class="container">
+<div class="home-container">
     <div class="poster"
          fxLayout="column">
-        <img [src]="searchImage(mostPopular)" [alt]="mostPopular.title">
+        <img *ngIf="!attempt"
+             [src]="searchImage(mostPopular)" [alt]="mostPopular.title" appImageLoading>
+        <div *ngIf="attempt"
+             fxLayout="row" 
+             fxLayoutAlign="center center"
+             class="skeleton">
+            <div class="h-450p"></div>
+        </div>
         <div class="carousel-home">
             <app-carousel [movies]="moviesTopRated"
                           [mouseover]="true"
@@ -12,7 +19,7 @@
         </div>
     </div>
 
-    <div class="movies-popular mt-126">
+    <div class="movies-popular mt-126 mb-10">
         <h3>
             Movies Popular
         </h3>
@@ -51,7 +58,8 @@
                 <div class="w-100 h-100"
                      fxLayout="row"
                      fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer" 
+                    <img class="img mat-elevation-z2 pointer"
+                         appImageLoading 
                          [src]="searchImagePosterPath(movie)"
                          (click)="goToMovie({movie: movie, isMovie: true})">
                 </div>
@@ -86,7 +94,6 @@
         <div fxLayout="row wrap" 
              fxLayoutAlign="center center"
              fxLayoutGap="24px"
-             class="padding"
              *ngIf="tvSeriesUpcoming; else series">
             <div class="most-acclaimed mat-elevation-z2"
                  fxLayout="row"
@@ -94,7 +101,8 @@
                 <div class="w-100 h-100"
                      fxLayout="row"
                      fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer" 
+                    <img class="img mat-elevation-z2 pointer"
+                         appImageLoading 
                          [src]="searchImagePosterPath(movie)"
                          (click)="goToMovie({movie: movie, isMovie: false})">
                 </div>

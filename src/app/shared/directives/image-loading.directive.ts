@@ -27,7 +27,7 @@ export class ImageLoadingDirective implements OnInit {
     this.srcAttr = this.loading ? 'assets/images/spinner.svg' : '';
   }
 
-  @HostListener('window:load')
+  @HostListener('load')
   loadImage() {
     this.class = this.saveClass;
     this.srcAttr = this.src;
