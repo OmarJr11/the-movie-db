@@ -60,9 +60,8 @@ export class SearchComponent implements OnInit, OnDestroy, DoCheck {
           this.totalPage = response.total_pages;
           this.spinner = false;
         },
-        error: (e) => {
+        error: () => {
           this.spinner = false;
-          console.log(e);
         }
       })
     );
