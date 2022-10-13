@@ -12,8 +12,19 @@
                   class="mat-elevation-z2"
                   fxLayout="column"
                   fxLayoutAlign="center center">
-                <mat-icon *ngIf="movie" class="add">bookmark</mat-icon>
-                <mat-icon *ngIf="movie" class="share">share</mat-icon>
+                <div *ngIf="movie"
+                     [ngClass]="saved ? 'active-icon-add' : 'icon-add'"
+                     fxLayout="row"
+                     fxLayoutAlign="center center">
+                    <mat-icon class="add"
+                              (click)="actionsMyList(movie.id)">bookmark</mat-icon>
+                </div>
+                <div *ngIf="movie"
+                     class="icon-share"
+                     fxLayout="row"
+                     fxLayoutAlign="center center">
+                    <mat-icon class="share">share</mat-icon>
+                </div>
                 <img class="mat-elevation-z2 img" 
                      [src]="searchImage()"
                      appImageLoading>

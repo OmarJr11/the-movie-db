@@ -1,0 +1,31 @@
+@import '../../../../assets/scss/themes/variables.scss';
+
+:host ::ng-deep {
+    h2 {
+        font-size: 26px !important;
+        margin-top: 30px !important;
+    }
+
+    .w-82 {
+        width: 82% !important;
+    }
+
+    .movie-card {
+        width: 200px !important;
+        height: 280px !important;
+        margin-left: 26px !important;
+        border-radius: 12px !important;
+
+        &:nth-child(5n + 1) {
+            margin-left: 0px !important;
+        }
+    }
+
+    .mb-26 {
+        margin-bottom: 26px !important;
+    }
+
+    .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: $main-color !important;
+    }
+}

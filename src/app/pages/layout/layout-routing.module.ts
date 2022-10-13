@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home';
 import { HomeSeriesComponent, MovieDetailsComponent, TvSeriesDetailsComponent } from '../movies';
 import { HomeMoviesComponent } from '../movies/views/home-movies/home-movies.component';
+import { MyListComponent } from '../my-list';
 import { SearchComponent } from '../search';
 import { LayoutComponent } from './views';
 
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'tv-series/:id',
         component: TvSeriesDetailsComponent,
+      },
+      {
+        path: 'my-list',
+        component: MyListComponent,
       },
       {
         path: '**',

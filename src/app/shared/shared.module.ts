@@ -10,6 +10,7 @@ import { ImageLoadingDirective } from './directives/image-loading.directive';
 import { FormsModule } from '@angular/forms';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
 
 const modules = [
   MatSidenavModule,
@@ -20,6 +21,7 @@ const modules = [
   SwiperModule,
   FormsModule,
   MatProgressSpinnerModule,
+  MatTabsModule,
 ];
 
 const components = [

@@ -1,0 +1,27 @@
+<div class="w-100"
+     fxLayout="column"
+     fxLayoutAlign="start center"
+     fxLayoutGap="18px">
+     <h2 class="w-100 text-center">My list</h2>
+     <div *ngIf="!spinner && !notMovies && movies.length > 0"
+          class="w-82"
+          fxLayout="row wrap">
+          <div *ngFor="let movie of movies"
+               fxLayout="row"
+               fxLayoutAlign="start start"
+               class="movie-card mb-26">
+               <div class="w-100 h-100">
+                    <app-movie-card [movie]="movie"
+                                    (click)="goToMovie(movie)" ></app-movie-card>
+               </div>
+          </div>
+     </div>
+    <div class="spinner"
+         fxLayout="row"
+         fxLayoutAlign="center center"
+         *ngIf="spinner && !notMovies">
+          <mat-spinner [diameter]="90"
+                         [strokeWidth]="6">
+          </mat-spinner>
+     </div>
+</div>
