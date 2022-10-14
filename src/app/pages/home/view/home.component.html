@@ -2,6 +2,7 @@
     <div class="poster"
          fxLayout="column">
         <img *ngIf="!attempt"
+             class="mat-elevation-z2"
              [src]="searchImage(mostPopular)" [alt]="mostPopular.title" appImageLoading>
         <div *ngIf="attempt"
              fxLayout="row" 
