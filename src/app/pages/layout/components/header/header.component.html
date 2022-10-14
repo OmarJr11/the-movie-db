@@ -3,7 +3,7 @@
      fxLayout="column">
     <div fxLayout="row"
          class="header"
-         fxLayoutAlign="start center"
+         fxLayoutAlign="space-between center"
          fxLayoutAlign.xs="space-between center"
          fxLayoutGap="30px">
         <!-- HEADER LOGO -->
@@ -49,6 +49,21 @@
                    ngClass.xs="text-xs"
                    [(ngModel)]="search"
                    (keydown)="searchKeydown($event)">
+        </div>
+        <div class="h-100"
+             fxLayout="row"
+             fxLayoutAlign="center center"
+             fxLayoutGap="16px">
+            <div class="icon-social">
+                <a href="https://github.com/OmarJr11/the-movie-db">
+                    <img class="w-100 h-100" src="assets\images\github.png" alt="">
+                </a>
+            </div>
+            <div class="icon-social">
+                <a href="https://www.linkedin.com/in/omar-gonzalez-aa7578212/">
+                    <img class="w-100 h-100" src="assets\images\linkedin.png" alt="">
+                </a>
+            </div>
         </div>
     </div>
 </div>

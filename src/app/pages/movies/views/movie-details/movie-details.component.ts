@@ -41,10 +41,11 @@ export class MovieDetailsComponent implements OnInit {
           this.spinner = false;
           this.movie = response;
           const storage = this._storageService.get();
+          
           if(storage) {
             this.storage = storage;
             this.myList.push(...this.storage.myList);
-            this.saved = this.myList.findIndex((movie) => Number(movie) === Number(this.movie.id)) !== -1;
+            this.saved = this.myList.findIndex((movie) => Number(movie.id) === Number(this.movie.id)) !== -1;
           }
           this.getMoviesSimilar();
         }
@@ -60,7 +61,7 @@ export class MovieDetailsComponent implements OnInit {
 
   actionsMyList(idMovie: number) {
     if(!this.saved) {
-      this.myList.push({ 
+      this.myList.unshift({ 
         id: Number(idMovie),
         isMovie: true,
       });

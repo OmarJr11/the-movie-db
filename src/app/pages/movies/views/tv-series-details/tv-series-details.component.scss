@@ -110,7 +110,7 @@
     .icon-add {
         position: absolute;
         top: 4px;
-        left: 4px;
+        right: 4px;
         width: 35px !important;
         height: 35px !important;
         border-radius: 100% !important;
@@ -126,29 +126,10 @@
         }
     }
 
-    .icon-share {
-        position: absolute;
-        top: 4px;
-        right: 4px;
-        width: 35px !important;
-        height: 35px !important;
-        border-radius: 100% !important;
-
-        &:hover {
-            background-color: rgba(13, 37, 63, 0.376);
-            transition: all ease-in-out .5ms;
-
-            .share {
-                color: #0d253f !important;
-                transition: all ease-in-out .5ms;
-            }
-        }
-    }
-
     .active-icon-add {
         position: absolute;
         top: 4px;
-        left: 4px;
+        right: 4px;
         width: 35px !important;
         height: 35px !important;
         border-radius: 100% !important;
