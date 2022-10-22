@@ -6,12 +6,23 @@
         background-color: #161518 !important;
     }
 
-    .header-container {
+    .header {
         position: sticky !important;
         top: 0 !important;
         width: 100% !important;
-        height: 72px !important;
         z-index: 10000 !important;
+    }
+
+    .header-container {
+        height: 72px !important;
+    }
+
+    .header-container-lt-md {
+        height: 120px !important;
+    }
+
+    .header-container-xl {
+        height: 100px !important;
     }
 }
 

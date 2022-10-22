@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
     this._subscription.add(
       this.apiTheMoviesDB.getUpcoming().subscribe({
         next: (response) => {
-          this.moviesUpcoming = response.results.slice(0, 4);          
+          this.moviesUpcoming = response.results.slice(0, 4);
         }
       })
     );

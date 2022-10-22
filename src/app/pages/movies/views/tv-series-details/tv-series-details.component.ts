@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { StorageService, TheMovieDbService } from 'src/app/core';
@@ -10,10 +10,11 @@ import { Movie } from 'src/app/core/models/movie.model';
   templateUrl: './tv-series-details.component.html',
   styleUrls: ['./tv-series-details.component.scss']
 })
-export class TvSeriesDetailsComponent implements OnInit {
+export class TvSeriesDetailsComponent implements OnInit, DoCheck {
   movie!: Movie;
   movies!: Movie[];
   id: number = Number(this._activatedRoute.snapshot.paramMap.get('id'));
+  idAux: number = Number(this._activatedRoute.snapshot.paramMap.get('id'));
   imageUrl: string = 'https://image.tmdb.org/t/p/original';
   spinner: boolean = false;
   myList: {
@@ -32,20 +33,35 @@ export class TvSeriesDetailsComponent implements OnInit {
     private readonly _storageService: StorageService,
   ) { }
 
+  ngDoCheck(): void {
+    if(
+      Number(this._activatedRoute.snapshot.paramMap.get('id')) !== this.idAux
+    ) {
+      this.spinner = true;
+      this.id = Number(this._activatedRoute.snapshot.paramMap.get('id'));
+      this.idAux = Number(this._activatedRoute.snapshot.paramMap.get('id'));
+      this.getTvSeriesById();
+    }
+  }
+
   ngOnInit(): void {
     this.spinner = true;
+    this.getTvSeriesById();
+  }
+
+  getTvSeriesById() {
     this._subscription.add(
       this.apiTheMoviesDB.getTvSerieById(this.id).subscribe({
         next: (response) => {
           this.spinner = false;
-          this.movie = response;
+          this.movie = response;          
           const storage = this._storageService.get();
           if(storage) {
             this.storage = storage;
             this.myList.push(...this.storage.myList);
             this.saved = this.myList.findIndex((movie) => Number(movie.id) === Number(this.movie.id)) !== -1;
           }
-          this.getMoviesSimilar();
+          this.getTvSeriesSimilar();
         }
       })
     );
@@ -53,7 +69,7 @@ export class TvSeriesDetailsComponent implements OnInit {
 
   goToMovie(item: any) {    
     if(item.isMovie) {
-      this._router.navigate(['/movie', item.movie.id]);
+      this._router.navigate(['/tv-series', item.movie.id]);
     }
   }
 
@@ -75,9 +91,9 @@ export class TvSeriesDetailsComponent implements OnInit {
     return this.imageUrl + this.movie.poster_path;
   }
 
-  private getMoviesSimilar() {
+  private getTvSeriesSimilar() {
     this._subscription.add(
-      this.apiTheMoviesDB.getMoviesSimilar(this.id).subscribe({
+      this.apiTheMoviesDB.getTvSeriesSimilar(this.id).subscribe({
         next: (response) => {
           this.movies = response.results.slice(0, 10);
         }

@@ -17,7 +17,7 @@ export class CarouselComponent implements OnInit {
   @Output() goToMovie = new EventEmitter<{movie: Movie, isMovie: boolean}>();
 
   config: SwiperOptions = {
-    slidesPerView: 'auto',
+    slidesPerView: 2.6,
     spaceBetween: 20,
     navigation: true,
     scrollbar: { draggable: true },

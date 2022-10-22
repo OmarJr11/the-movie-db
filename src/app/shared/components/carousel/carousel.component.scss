@@ -3,20 +3,24 @@
 :host ::ng-deep {
     .swiper {
         width: 100% !important;
-        height: 250px !important;
         box-sizing: border-box;
-        padding: 0px 60px;
+        padding: 0px 40px !important;
+
+        .h-250p {
+            height: 250px !important;
+        }
+
+        .h-155p {
+            height: 155px !important;
+        }
 
         .item-carousel {
-            width: 174px !important;
             background: $background-color !important;
             border-radius: 8px !important;
-            height: 240px !important;
             cursor: pointer;
 
             .image-carousel {
                 height: 100% !important;
-                width: 100% !important;
                 border-radius: 8px !important;
             }
     
@@ -29,6 +33,11 @@
         }
     }
 
+    .item-size {
+        width: 174px !important;
+        height: 240px !important;
+    }
+
     .swiper-button-prev, .swiper-button-next {
         color: white !important;
     }
@@ -36,4 +45,37 @@
     .swiper-button-disabled {
         opacity: 0 !important;
     }
+
+    @media only screen and (max-width: 600px) {
+        .swiper {
+            padding: 0 15px !important;
+        }
+
+        .item-size {
+            width: 105px !important;
+            height: 145px !important;
+            margin-right: 10px !important;
+        }
+
+        .swiper-button-prev, .swiper-button-next::after {
+            display: none !important;
+        }
+    }
+
+    @media only screen and (min-width: 601px) and (max-width: 959px) {
+        .swiper {
+            padding: 0 15px !important;
+        }
+
+        .item-size {
+            width: 145px !important;
+            height: 180px !important;
+            margin-right: 10px !important;
+        }
+
+        .swiper-button-prev, .swiper-button-next::after {
+            display: none !important;
+        }
+    }
+
 }
