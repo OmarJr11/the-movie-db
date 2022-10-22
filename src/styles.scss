@@ -28,16 +28,31 @@ html, body {
     height: 100% !important;
 }
 
+//Padding
+.pd-60{
+    padding: 0px 60px !important;
+}
+
 .p-30 {
     padding: 0px 30px !important;
+}
+
+.pd-20{
+    padding: 0px 20px !important;
+    font-size: 15px !important;
 }
 
 .p-10 {
     padding: 0px 10px !important;
 }
 
+//Margin
 .nm {
     margin: 0px !important;
+}
+
+.mb-120 {
+    margin-bottom: 120px !important;
 }
 
 .mb-24 {
@@ -65,8 +80,16 @@ span, p, h1, h2, h3, h4, h5 {
     font-size: 15px !important;
 }
 
+.text-18 {
+    font-size: 18px !important;
+}
+
 .text-20 {
     font-size: 20px !important;
+}
+
+.text-22 {
+    font-size: 22px !important;
 }
 
 .pointer {

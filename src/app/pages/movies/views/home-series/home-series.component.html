@@ -1,5 +1,8 @@
 <div class="container">
-    <div class="poster"
+    <div ngClass="poster"
+         ngClass.lt-md="poster-lt-md"
+         ngClass.xs="poster-xs"
+         class="mb-120"
          fxLayout="column">
         <img [src]="searchImage(mostPopular)" [alt]="mostPopular.title">
         <div class="carousel-home">
@@ -11,8 +14,9 @@
             </app-carousel>
         </div>
     </div>
-    <div class="tv-series-popular  mt-126">
-        <h3>
+    <div class="mb-18">
+        <h3 ngClass="pd-60"
+            ngClass.xs="pd-20">
             Tv Series Popular
         </h3>
         <app-carousel [movies]="tvSeriesPopular"
@@ -23,17 +27,25 @@
         </app-carousel>
     </div>
     <div class="movies-most-acclaimed"
-         fxLayout="column" 
+         fxLayout="column"
          fxLayoutAlign="start center">
-        <h3>
+        <h3 ngClass="text-22 mb-18"
+            ngClass.xs="text-18 mb-10">
             Most acclaimed Tv Series
         </h3>
         <div fxLayout="row wrap" 
              fxLayoutAlign="center center"
+             fxLayoutAlign.xs="start center"
              fxLayoutGap="24px"
-             class="padding"
+             fxLayoutGap.sm="14px"
+             ngClass="w-100"
+             ngClass.sm="w-350p"
+             ngClass.xs="w-275p"
              *ngIf="tvSeriesUpcoming; else series">
-            <div class="most-acclaimed mat-elevation-z2"
+             <div class="most-acclaimed mat-elevation-z2"
+                  ngClass="most-acclaimed-size"
+                  ngClass.sm="most-acclaimed-size-sm"
+                  ngClass.xs="most-acclaimed-size-xs"
                  fxLayout="row"
                  *ngFor="let movie of tvSeriesUpcoming">
                 <div class="w-100 h-100"
@@ -50,18 +62,32 @@
             <div fxLayout="row wrap" 
                  fxLayoutAlign="center center"
                  fxLayoutGap="24px"
-                 class="w-100">
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
+                 ngClass="w-100"
+                 ngClass.sm="w-350p"
+                 ngClass.xs="w-275p">
+                <div class="mat-elevation-z2 skeleton"
+                    ngClass="loading-image"
+                    ngClass.sm="most-acclaimed-size-sm"
+                    ngClass.xs="most-acclaimed-size-xs"
+                    fxLayout="row">
                 </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
+                <div class="mat-elevation-z2 skeleton"
+                    ngClass="loading-image"
+                    ngClass.sm="most-acclaimed-size-sm"
+                    ngClass.xs="most-acclaimed-size-xs"
+                    fxLayout="row">
                 </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
+                <div class="mat-elevation-z2 skeleton"
+                    ngClass="loading-image"
+                    ngClass.sm="most-acclaimed-size-sm"
+                    ngClass.xs="most-acclaimed-size-xs"
+                    fxLayout="row">
                 </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
+                <div class="mat-elevation-z2 skeleton"
+                    ngClass="loading-image"
+                    ngClass.sm="most-acclaimed-size-sm"
+                    ngClass.xs="most-acclaimed-size-xs"
+                    fxLayout="row">
                 </div>
             </div>
         </ng-template>
