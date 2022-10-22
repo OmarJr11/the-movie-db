@@ -1,7 +1,9 @@
 <swiper class="swiper"
+        ngClass="h-250p"
+        ngClass.xs="h-155p"
         [config]="config">
      <ng-template swiperSlide
-                  class="item-carousel mat-elevation-z2"
+                  class="item-size item-carousel mat-elevation-z2"
                   *ngFor="let movie of movies">
           <div class="w-100 h-100"
                fxLayout="row"

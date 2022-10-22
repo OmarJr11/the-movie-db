@@ -1,132 +1,190 @@
 <div class="home-container">
-    <div class="poster"
-         fxLayout="column">
-        <img *ngIf="!attempt"
-             class="mat-elevation-z2"
-             [src]="searchImage(mostPopular)" [alt]="mostPopular.title" appImageLoading>
-        <div *ngIf="attempt"
-             fxLayout="row" 
-             fxLayoutAlign="center center"
-             class="skeleton">
-            <div class="h-450p"></div>
-        </div>
-        <div class="carousel-home">
-            <app-carousel [movies]="moviesTopRated"
-                          [mouseover]="true"
-                          [isMovie]="true"
-                          (selectedMovie)="selectMovie($event)"
-                          (goToMovie)="goToMovie($event)">
-            </app-carousel>
-        </div>
-    </div>
+     <div ngClass="poster"
+          ngClass.lt-md="poster-lt-md"
+          ngClass.xs="poster-xs"
+          class="mb-120"
+          fxLayout="column">
+          <img *ngIf="!attempt"
+               class="mat-elevation-z2"
+               [src]="searchImage(mostPopular)"
+               [alt]="mostPopular.title"
+               appImageLoading>
+          <div *ngIf="attempt"
+               fxLayout="row" 
+               fxLayoutAlign="center center"
+               class="skeleton">
+               <div ngClass="h-450p" 
+                    ngClass-lt-md="h-500p"></div>
+          </div>
+          <div class="carousel-home"
+               fxLayout.xl="row"
+               fxLayoutAlign.xl="center center">
+               <app-carousel class="w-100"
+                             [movies]="moviesTopRated"
+                             [mouseover]="true"
+                             [isMovie]="true"
+                             (selectedMovie)="selectMovie($event)"
+                             (goToMovie)="goToMovie($event)">
+               </app-carousel>
+          </div>
+     </div>
 
-    <div class="movies-popular mt-126 mb-10">
-        <h3>
-            Movies Popular
-        </h3>
-        <app-carousel [movies]="moviesPopular"
-                      [mouseover]="false"
-                      [isMovie]="true"
-                      (selectedMovie)="selectMovie($event)"
-                      (goToMovie)="goToMovie($event)">
-        </app-carousel>
-    </div>
-    <div class="tv-series-popular">
-        <h3>
-            Tv Series Popular
-        </h3>
-        <app-carousel [movies]="tvSeriesPopular"
-                      [mouseover]="false"
-                      [isMovie]="false"
-                      (selectedMovie)="selectMovie($event)"
-                      (goToMovie)="goToMovie($event)">
-        </app-carousel>
-    </div>
-    <div class="movies-most-acclaimed"
-         fxLayout="column" 
+     <div class="mb-18">
+          <h3 ngClass="pd-60"
+               ngClass.xs="pd-20">
+               Movies Popular
+          </h3>
+          <app-carousel [movies]="moviesPopular"
+                         [mouseover]="false"
+                         [isMovie]="true"
+                         (selectedMovie)="selectMovie($event)"
+                         (goToMovie)="goToMovie($event)">
+          </app-carousel>
+     </div>
+
+     <div class="mb-18">
+          <h3 ngClass="pd-60"
+               ngClass.xs="pd-20">
+               Tv Series Popular
+          </h3>
+          <app-carousel [movies]="tvSeriesPopular"
+                         [mouseover]="false"
+                         [isMovie]="false"
+                         (selectedMovie)="selectMovie($event)"
+                         (goToMovie)="goToMovie($event)">
+          </app-carousel>
+     </div>
+     <div class="movies-most-acclaimed mb-18"
+         fxLayout="column"
          fxLayoutAlign="start center">
-        <h3>
-            Most acclaimed movies
-        </h3>
-        <div fxLayout="row wrap" 
-             fxLayoutAlign="center center"
-             fxLayoutGap="24px"
-             class="padding"
-             *ngIf="moviesUpcoming; else elseBlock">
-            <div class="most-acclaimed mat-elevation-z2"
-                 fxLayout="row"
-                 *ngFor="let movie of moviesUpcoming">
-                <div class="w-100 h-100"
-                     fxLayout="row"
-                     fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer"
-                         appImageLoading 
-                         [src]="searchImagePosterPath(movie)"
-                         (click)="goToMovie({movie: movie, isMovie: true})">
-                </div>
-            </div>
-        </div>
-        <ng-template #elseBlock>
-            <div fxLayout="row wrap" 
-                 fxLayoutAlign="center center"
-                 fxLayoutGap="24px"
-                 class="w-100">
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-            </div>
-        </ng-template>
-    </div>
-    <div class="movies-most-acclaimed"
-         fxLayout="column" 
-         fxLayoutAlign="start center">
-        <h3>
-            Most acclaimed Tv Series
-        </h3>
-        <div fxLayout="row wrap" 
-             fxLayoutAlign="center center"
-             fxLayoutGap="24px"
-             *ngIf="tvSeriesUpcoming; else series">
-            <div class="most-acclaimed mat-elevation-z2"
-                 fxLayout="row"
-                 *ngFor="let movie of tvSeriesUpcoming">
-                <div class="w-100 h-100"
-                     fxLayout="row"
-                     fxLayoutAlign="center center">
-                    <img class="img mat-elevation-z2 pointer"
-                         appImageLoading 
-                         [src]="searchImagePosterPath(movie)"
-                         (click)="goToMovie({movie: movie, isMovie: false})">
-                </div>
-            </div>
-        </div>
-        <ng-template #series>
-            <div fxLayout="row wrap" 
-                 fxLayoutAlign="center center"
-                 fxLayoutGap="24px"
-                 class="w-100">
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-                <div class="loading-image mat-elevation-z2 skeleton"
-                     fxLayout="row">
-                </div>
-            </div>
-        </ng-template>
-    </div>
+          <h3 ngClass="text-22 mb-18"
+               ngClass.xs="text-18 mb-10">
+               Most acclaimed movies
+          </h3>
+          <div fxLayout="row wrap" 
+               fxLayoutAlign="center center"
+               fxLayoutAlign.xs="start center"
+               fxLayoutGap="24px"
+               fxLayoutGap.sm="14px"
+               ngClass="w-100"
+               ngClass.sm="w-350p"
+               ngClass.xs="w-275p"
+               *ngIf="moviesUpcoming; else elseBlock">
+               <div class="most-acclaimed mat-elevation-z2"
+                    ngClass="most-acclaimed-size"
+                    ngClass.sm="most-acclaimed-size-sm"
+                    ngClass.xs="most-acclaimed-size-xs"
+                    fxLayout="row"
+                    *ngFor="let movie of moviesUpcoming">
+                    <div class="w-100 h-100"
+                         fxLayout="row"
+                         fxLayoutAlign="center center">
+                         <img class="img mat-elevation-z2 pointer"
+                              appImageLoading 
+                              [src]="searchImagePosterPath(movie)"
+                              (click)="goToMovie({movie: movie, isMovie: true})">
+                    </div>
+               </div>
+          </div>
+          <ng-template #elseBlock>
+               <div fxLayout="row wrap" 
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="24px"
+                    ngClass="w-100"
+                    ngClass.sm="w-350p"
+                    ngClass.xs="w-275p">
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+               </div>
+          </ng-template>
+     </div>
+     <div class="movies-most-acclaimed"
+          fxLayout="column" 
+          fxLayoutAlign="start center">
+          <h3 ngClass="text-22 mb-18"
+               ngClass.xs="text-18 mb-10">
+               Most acclaimed Tv Series
+          </h3>
+          <div fxLayout="row wrap" 
+               fxLayoutAlign="center center"
+               fxLayoutAlign.xs="start center"
+               fxLayoutGap="24px"
+               fxLayoutGap.sm="14px"
+               ngClass="w-100"
+               ngClass.sm="w-350p"
+               ngClass.xs="w-275p"
+               *ngIf="tvSeriesUpcoming; else series">
+               <div class="most-acclaimed mat-elevation-z2"
+                    ngClass="most-acclaimed-size"
+                    ngClass.sm="most-acclaimed-size-sm"
+                    ngClass.xs="most-acclaimed-size-xs"
+                    fxLayout="row"
+                    *ngFor="let movie of tvSeriesUpcoming">
+                    <div class="w-100 h-100"
+                         fxLayout="row"
+                         fxLayoutAlign="center center">
+                         <img class="img mat-elevation-z2 pointer"
+                              appImageLoading 
+                              [src]="searchImagePosterPath(movie)"
+                              (click)="goToMovie({movie: movie, isMovie: false})">
+                    </div>
+               </div>
+          </div>
+          <ng-template #series>
+               <div fxLayout="row wrap" 
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="24px"
+                    fxLayoutGap.sm="14px"
+                    ngClass="w-100"
+                    ngClass.sm="w-350p"
+                    ngClass.xs="w-275p">
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+                    <div class="mat-elevation-z2 skeleton"
+                         ngClass="loading-image"
+                         ngClass.sm="most-acclaimed-size-sm"
+                         ngClass.xs="most-acclaimed-size-xs"
+                         fxLayout="row">
+                    </div>
+               </div>
+          </ng-template>
+     </div>
 </div>

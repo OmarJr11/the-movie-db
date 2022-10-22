@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { StorageService, TheMovieDbService } from 'src/app/core';
@@ -10,10 +10,11 @@ import { Movie } from 'src/app/core/models/movie.model';
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.scss']
 })
-export class MovieDetailsComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit, DoCheck {
   movie!: Movie;
   movies!: Movie[];
   id: number = Number(this._activatedRoute.snapshot.paramMap.get('id'));
+  idAux: number = Number(this._activatedRoute.snapshot.paramMap.get('id'));
   imageUrl: string = 'https://image.tmdb.org/t/p/original';
   spinner: boolean = false;
   myList: {
@@ -33,8 +34,23 @@ export class MovieDetailsComponent implements OnInit {
     private readonly _storageService: StorageService,
   ) { }
 
+  ngDoCheck(): void {
+    if(
+      Number(this._activatedRoute.snapshot.paramMap.get('id')) !== this.idAux
+    ) {
+      this.spinner = true;
+      this.id = Number(this._activatedRoute.snapshot.paramMap.get('id'));
+      this.idAux = Number(this._activatedRoute.snapshot.paramMap.get('id'));
+      this.getMovieById();
+    }
+  }
+
   ngOnInit(): void {
     this.spinner = true;
+    this.getMovieById();
+  }
+
+  getMovieById() {
     this._subscription.add(
       this.apiTheMoviesDB.getMovieById(this.id).subscribe({
         next: (response) => {

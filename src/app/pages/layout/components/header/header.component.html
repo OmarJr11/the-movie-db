@@ -1,14 +1,17 @@
 <div ngClass="content-container"
-     ngClass.xs="content-container-xs"
      fxLayout="column">
     <div fxLayout="row"
+         fxLayout.lt-md="row wrap"
          class="header"
+         ngClass="p-30"
+         ngClass.xs="p-10"
          fxLayoutAlign="space-between center"
-         fxLayoutAlign.xs="space-between center"
-         fxLayoutGap="30px">
+         fxLayoutAlign.lt-md="space-between center"
+         fxLayoutGap="30px"
+         fxLayoutGap.lt-md="0px">
         <!-- HEADER LOGO -->
         <div ngClass="image-container"
-             ngClass.xs="image-container-xs">
+             ngClass.lt-md="image-container-lt-md mb-5">
             <a class="pointer"
                fxLayout="row "
                [routerLink]="['/']">
@@ -20,29 +23,40 @@
             </a>
         </div>
         <!-- Header Views -->
-        <div class="header-views"
+        <div ngClass="header-views"
+             ngClass.xl="header-views-xl"
+             ngClass.lt-md="header-views-lt-md mb-5"
              fxLayout="row"
              fxLayoutAlign="center center"
              fxLayoutAlign.xs="end center"
              fxLayoutGap="30px"
-             fxLayoutGap.xs="10px">
+             fxLayoutGap.lt-md="8px">
             <div *ngFor="let route of routes">
                 <a class="pointer"
                     fxLayout="row "
                     [routerLink]="route.path">
-                    <span ngClass="text-15" ngClass.xs="text-xs">{{route.name}}</span>
+                    <span ngClass="text-15"
+                          ngClass.xl="text-20" 
+                          ngClass.xs="text-xs">{{route.name}}</span>
                 </a>
             </div>   
         </div>
         <!--Header Search-->
-        <div class="header-search"
+        <div class="search"
+             ngClass="header-search"
+             ngClass.lt-md="header-search-lt-md mb-5"
+             ngClass.md="header-search-md"
+             ngClass.xl="header-search-xl"
              fxLayout="row"
              fxLayoutAlign="space-around center">
             <div class="icon pointer"
                  fxLayout="row"
                  fxLayoutAlign="center center"
                  (click)="searchClick()">
-                <mat-icon>search</mat-icon>
+                <mat-icon ngClass="icon-search"
+                          ngClass.xs="icon-search-xs">
+                    search
+                </mat-icon>
             </div>
             <input type="text" 
                    placeholder="Search Movies or Tv series"
@@ -53,13 +67,16 @@
         <div class="h-100"
              fxLayout="row"
              fxLayoutAlign="center center"
-             fxLayoutGap="16px">
-            <div class="icon-social">
+             fxLayoutGap="16px"
+             fxHide.lt-lg>
+            <div ngClass="icon-social"
+                 ngClass.xl="icon-social-xl">
                 <a href="https://github.com/OmarJr11/the-movie-db">
                     <img class="w-100 h-100" src="assets\images\github.png" alt="">
                 </a>
             </div>
-            <div class="icon-social">
+            <div ngClass="icon-social"
+                 ngClass.xl="icon-social-xl">
                 <a href="https://www.linkedin.com/in/omar-gonzalez-aa7578212/">
                     <img class="w-100 h-100" src="assets\images\linkedin.png" alt="">
                 </a>

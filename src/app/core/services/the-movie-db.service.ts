@@ -42,6 +42,10 @@ export class TheMovieDbService {
     return this._http.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=b3eff2fcae58daac15989c11c538144d`)
   }
 
+  getTvSeriesSimilar(id: number): Observable<any> {
+    return this._http.get(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=b3eff2fcae58daac15989c11c538144d`)
+  }
+
   getTvPopular(): Observable<any> {
     return this._http.get(`https://api.themoviedb.org/3/tv/popular?api_key=b3eff2fcae58daac15989c11c538144d`)
   }

@@ -28,8 +28,28 @@ html, body {
     height: 100% !important;
 }
 
+.p-30 {
+    padding: 0px 30px !important;
+}
+
+.p-10 {
+    padding: 0px 10px !important;
+}
+
+.nm {
+    margin: 0px !important;
+}
+
 .mb-24 {
     margin-bottom: 24px !important;
+}
+
+.mb-18 {
+    margin-bottom: 18px !important;
+}
+
+.mb-5 {
+    margin-bottom: 5px !important;
 }
 
 span, p, h1, h2, h3, h4, h5 {
@@ -45,6 +65,10 @@ span, p, h1, h2, h3, h4, h5 {
     font-size: 15px !important;
 }
 
+.text-20 {
+    font-size: 20px !important;
+}
+
 .pointer {
     cursor: pointer !important;
 }
@@ -56,6 +80,26 @@ span, p, h1, h2, h3, h4, h5 {
 .error-image {
     width: 124px !important;
     height: 124px !important;
+}
+
+.mt-5 {
+    margin-top: 5px !important;
+}
+
+.h-420p {
+    height: 420px !important;
+}
+
+.h-300p {
+    height: 300px !important;
+}
+
+.text-22 {
+    font-size: 22px !important;
+}
+
+.text-18 {
+    font-size: 18px !important;
 }
 
 @keyframes skeleton {
