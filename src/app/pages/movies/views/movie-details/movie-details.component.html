@@ -1,17 +1,29 @@
 <div fxLayout="column"
-     fxLayoutAlign="center center"
+     fxLayoutAlign="start center"
      fxLayoutGap="26px"
-     class="container"
+     fxLayoutGap.lt-md="0px"
+     class="container w-100"
      *ngIf="!spinner">
-    <div class="detail"
-         fxLayout="row">
-        <div class="w-50"
+    <div ngClass="details"
+         ngClass.sm="details-sm"
+         ngClass.xs="details-xs"
+         fxLayout="row"
+         fxLayout.sm="row wrap"
+         fxLayoutAlign="center start"
+         fxLayout.md="row"
+         fxLayout.xs="column"
+         fxLayoutGap.xs="6px">
+        <div ngClass="w-50"
+             ngClass.xs="w-100 h-100"
+             ngClass.sm="h-100 mb-10"
              fxLayout="row"
              fxLayoutAlign="center center">       
-             <div ngClass="image-details"
-                  class="mat-elevation-z2"
-                  fxLayout="column"
-                  fxLayoutAlign="center center">
+            <div ngClass="image-details"
+                 ngClass.xs="image-details-xs"
+                 ngClass.sm="image-details-sm"
+                 class="mat-elevation-z2"
+                 fxLayout="column"
+                 fxLayoutAlign="center center">
                 <div *ngIf="movie"
                      [ngClass]="saved ? 'active-icon-add' : 'icon-add'"
                      fxLayout="row"
@@ -25,16 +37,25 @@
             </div>
         </div>
         <div ngClass="w-50 p-50"
+             ngClass.xs="info-xs"
+             ngClass.sm="info-sm"
              fxLayout="column"
              fxLayoutAlign="start start"
-             fxLayoutGap="12px">
-            <h2>{{movie.title}}</h2>
-            <h3 *ngIf="movie.tagline" class="tagline">"{{movie.tagline}}"</h3>
-            <p>
+             fxLayoutGap="12px"
+             fxLayoutGap.xs="8px">
+            <h2 ngClass="text-42"
+                ngClass.xs="text-28">{{movie.title}}</h2>
+            <h3 *ngIf="movie.tagline" 
+                class="tagline"
+                ngClass="text-18">
+                "{{movie.tagline}}"
+            </h3>
+            <p ngClass.xs="text-13">
                 {{movie.overview}}
             </p>
             <span>{{movie.release_date}}</span>
-            <div class="w-80"
+            <div ngClass="w-80"
+                 ngClass.xs="w-100"
                  fxLayout="row wrap"
                  fxLayoutGap="8px">
                 <div *ngFor="let category of movie.genres"
@@ -63,8 +84,10 @@
             </div>
         </div>
     </div>
-    <div class="movies-similar">
-        <h3>
+    <div ngClass="movies-similar"
+         ngClass.lt-md="movies-similar-xs">
+        <h3 ngClass="text-22"
+            ngClass.xs="text-18">
             Movies similar
         </h3>
         <app-carousel [movies]="movies"

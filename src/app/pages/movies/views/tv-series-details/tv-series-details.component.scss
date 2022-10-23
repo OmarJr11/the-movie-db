@@ -12,8 +12,30 @@
 
     .details {
         width: 100% !important;
-        height: 600px !important;
-        padding: 20px !important;
+    }
+
+    .details-xs {
+        width: 100% !important;
+        padding: 16px !important;
+    }
+
+    .details-sm {
+        width: 100% !important;
+        padding: 16px !important;
+    }
+    
+    .info-sm {
+        width: 450px !important;
+        padding: 16px !important;
+        
+        @media only screen and (min-width: 600px) and (max-width: 801px){
+            width: 700px !important;
+        }
+    }
+
+    .info-xs {
+        width: 100% !important;
+        padding: 16px !important;
     }
 
     .img {
@@ -24,12 +46,10 @@
 
     h2 {
         color: White;
-        font-size: 42px !important;
     }
 
     .tagline {
         color: white;
-        font-size: 25px !important;
         font-weight: lighter !important;
     }
 
@@ -50,7 +70,7 @@
     }
 
     .p-50 {
-        padding: 50px 205px 0px 0px !important;
+        padding: 50px 150px 0px 0px !important;
     }
 
     .image-details {
@@ -61,9 +81,25 @@
         border-radius: 6px !important;
     }
 
+    .image-details-sm {
+        width: 320px !important;
+        height: 370px !important;
+        position: relative;
+        border-radius: 6px !important;
+
+    }
+
+    .image-details-xs {
+        width: 280px !important;
+        height: 350px !important;
+        position: relative;
+        border-radius: 6px !important;
+    }
+
     .category {
         min-width: 60px !important;
         height: 25px !important;
+        margin-bottom: 8px;
         padding: 0px 10px;
         background-color: $main-color!important;
         border-bottom-left-radius: 25px;
@@ -175,13 +211,40 @@
         h3 {
             padding: 0px 60px !important;
             color: white !important;
+        }
+
+        .text-22 {
             font-size: 22px !important;
             margin-bottom: 22px !important;
+        }
+
+        .text-16 {
+            font-size: 16px !important;
+            margin-bottom: 16px !important;
         }
 
         .padding {
             width: 100% !important;
             box-sizing: border-box !important;
+        }
+    }
+
+    .movies-similar-xs {
+        width: 100% !important;
+        padding-bottom: 24px !important;
+        h3 {
+            padding: 0px 18px !important;
+            color: white !important;
+        }
+
+        .text-22 {
+            font-size: 22px !important;
+            margin-bottom: 22px !important;
+        }
+
+        .text-18 {
+            font-size: 18px !important;
+            margin-bottom: 16px !important;
         }
     }
 
