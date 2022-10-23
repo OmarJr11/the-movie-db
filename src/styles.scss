@@ -24,6 +24,14 @@ html, body {
     width: 80% !important;
 }
 
+.w-70 {
+    width: 70% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
 .h-100 {
     height: 100% !important;
 }
@@ -63,6 +71,14 @@ html, body {
     margin-bottom: 18px !important;
 }
 
+.mb-15 {
+    margin-bottom: 15px !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px !important;
+}
+
 .mb-5 {
     margin-bottom: 5px !important;
 }
@@ -74,6 +90,10 @@ span, p, h1, h2, h3, h4, h5 {
 
 .text-center {
     text-align: center !important;
+}
+
+.text-13 {
+    font-size: 13px !important;
 }
 
 .text-15 {
@@ -90,6 +110,18 @@ span, p, h1, h2, h3, h4, h5 {
 
 .text-22 {
     font-size: 22px !important;
+}
+
+.text-25 {
+    font-size: 25px !important;
+}
+
+.text-28 {
+    font-size: 28px !important;
+}
+
+.text-42 {
+    font-size: 42px !important;
 }
 
 .pointer {
@@ -115,14 +147,6 @@ span, p, h1, h2, h3, h4, h5 {
 
 .h-300p {
     height: 300px !important;
-}
-
-.text-22 {
-    font-size: 22px !important;
-}
-
-.text-18 {
-    font-size: 18px !important;
 }
 
 @keyframes skeleton {
