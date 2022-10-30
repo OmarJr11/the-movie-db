@@ -12,4 +12,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scroll() {
+    window.scroll({top: 0, behavior: 'smooth'});
+  }
 }
