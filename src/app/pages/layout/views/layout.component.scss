@@ -24,6 +24,10 @@
     .header-container-xl {
         height: 100px !important;
     }
+
+    .back {
+        background-color: darken($color: $secondary-color, $amount: 12)  !important;
+    }
 }
 
 ::ng-deep.mat-drawer-inner-container::-webkit-scrollbar {
