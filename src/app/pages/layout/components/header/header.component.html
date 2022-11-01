@@ -3,10 +3,10 @@
     <div fxLayout="row"
          fxLayout.lt-md="row wrap"
          class="header"
-         ngClass="p-30"
-         ngClass.xs="p-10"
-         fxLayoutAlign="space-between center"
-         fxLayoutAlign.lt-md="space-between center"
+         ngClass="pd-30"
+         ngClass.lt-md="pd-15"
+         fxLayoutAlign="space-between start"
+         fxLayoutAlign.lt-md="space-between start"
          fxLayoutGap="30px"
          fxLayoutGap.lt-md="0px">
         <!-- HEADER LOGO -->
@@ -42,27 +42,59 @@
             </div>   
         </div>
         <!--Header Search-->
-        <div class="search"
-             ngClass="header-search"
+        <div ngClass="header-search"
              ngClass.lt-md="header-search-lt-md mb-5"
              ngClass.md="header-search-md"
              ngClass.xl="header-search-xl"
-             fxLayout="row"
-             fxLayoutAlign="space-around center">
-            <div class="icon pointer"
+             fxLayout="column"
+             fxLayoutAlign="start start"
+             fxLayoutGap="2px">
+            <div class="w-100 h-100 search"
                  fxLayout="row"
-                 fxLayoutAlign="center center"
-                 (click)="searchClick()">
-                <mat-icon ngClass="icon-search"
-                          ngClass.xs="icon-search-xs">
-                    search
-                </mat-icon>
+                 fxLayoutAlign="space-around center">
+                <div class="icon pointer"
+                     fxLayout="row"
+                     fxLayoutAlign="center center"
+                     (click)="searchClick()">
+                    <mat-icon ngClass="icon-search"
+                              ngClass.xs="icon-search-xs">
+                        search
+                    </mat-icon>
+                </div>
+                <input type="text" 
+                       placeholder="Search Movies or Tv series"
+                       ngClass.xs="text-xs"
+                       [(ngModel)]="search"
+                       (keydown)="searchKeydown($event)">
+            </div>    
+            <div class="w-100"
+                 fxLayout="column"
+                 *ngIf="movies.length > 0">
+                <ul class="w-100 search-items"
+                    fxLayout="column"
+                    fxLayoutAlign="start center"
+                    fxLayoutGap="2px">
+                    <li class="search-item"
+                        fxLayout="row" 
+                        fxLayoutAlig="center cente"
+                        fxLayoutGap="4px"
+                        *ngFor="let movie of movies"
+                        (click)="goToMovieOrSerie(movie)">
+                        <div class="image-search">
+                            <img class="image"
+                                 [src]="loadImage(movie)"
+                                 alt="movie.title ? movie.title : movie.original_name"
+                                 appImageLoading>
+                        </div>
+                        <div class="w-90"
+                             fxLayout="column"
+                             fxLayoutAlign="center start">
+                            <span class="w-100 ellipsi">{{movie.title ? movie.title : movie.original_name}}</span>
+                            <span>{{movie.media_type === 'movie' ? movie.release_date : movie.first_air_date}}</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <input type="text" 
-                   placeholder="Search Movies or Tv series"
-                   ngClass.xs="text-xs"
-                   [(ngModel)]="search"
-                   (keydown)="searchKeydown($event)">
         </div>
         <div class="h-100"
              fxLayout="row"

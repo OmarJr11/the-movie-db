@@ -48,6 +48,8 @@ export class SearchComponent implements OnInit, OnDestroy, DoCheck {
   ngOnInit(): void {    
     if(this.search) {
       this.onScrollDown();
+    } else {
+      this.firstSearch = true;
     }
   }
   
@@ -68,7 +70,7 @@ export class SearchComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   onScrollDown() {
-    if (!this.spinner && this.page !== this.totalPage) {      
+    if (!this.spinner && this.page !== this.totalPage && this.search !== '') {      
       this.page++;
       this.firstSearch = true;
       this.searchAll(this.search, this.page);

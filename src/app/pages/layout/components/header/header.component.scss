@@ -73,32 +73,32 @@
 
     .header-search {
         width: 480px !important;
-        height: 40px !important;
+        margin-top: 16px !important;
     }
 
     .header-search-lt-md {
         width: 100% !important;
-        height: 40px !important;
+        margin-top: 8px !important;
     }
-
+    
     .header-search-md {
         width: 400px !important;
-        height: 40px !important;
+        margin-top: 16px !important;
     }
 
     .header-search-xl {
         width: 700px !important;
-        height: 50px !important;
+        margin-top: 16px !important;
     }
 
     input {
         width: 94% !important;
-        height: 100% !important;
+        height: 40px !important;
         padding: 0 0 0 4px !important;
         border: none !important;
-        font-size: 17px !important;
-        border-bottom-right-radius: 25px !important;
-        border-top-right-radius: 25px !important;
+        font-size: 15px !important;
+        border-bottom-right-radius: 20px !important;
+        border-top-right-radius: 20px !important;
 
         &:hover {
             border: none !important;
@@ -111,9 +111,14 @@
         }
     }
 
+    .search-items {
+        display: list-item;
+        position: relative !important;
+    }
+
     .icon {
         width: 5% !important;
-        height: 100% !important;
+        height: 42px !important;
         border-top-left-radius: 25px !important;
         border-bottom-left-radius: 25px !important;
     }
@@ -151,5 +156,31 @@
 
     .w-200p {
         width: 200px !important;
+    }
+
+    .search-items {
+        background-color: $background-color !important;
+        list-style: none !important;
+        padding: 0 !important;
+        border-radius: 5px !important;
+        padding: 2px 2px !important;
+    }
+
+    .search-item {
+        width: 100% !important;
+        background-color: #2e2a2a !important;
+        height: 50px !important;
+        list-style: none !important;
+        border-radius: 5px !important;
+        cursor: pointer;
+    }
+
+    .image-search {
+        width: 45px !important;
+        height: 50px !important;
+        border-radius: 5px !important;
+        img {
+            border-radius: 5px !important;
+        }
     }
 }

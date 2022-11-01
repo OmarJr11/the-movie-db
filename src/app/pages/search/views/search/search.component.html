@@ -20,14 +20,17 @@
                <app-movie-card [movie]="movie" ></app-movie-card>
           </div>
      </div>
-     <div class="w-100"
-          fxLayout="row"
-          fxLayoutAlign="center center">
+     <div fxLayout="column"
+          fxLayoutAlign="start center"
+          fxLayoutGap="15px"
+          class="w-100"
+          [ngClass]="movies.length === 0 ? 'h-268p' : null">
           <mat-spinner *ngIf="spinner" 
                        [diameter]="90"
                        [strokeWidth]="6">
           </mat-spinner>
-          <span *ngIf="!spinner && totalPage === page">No hay más resultados</span>
-          <span *ngIf="firstSearch && page === 0">No se han encontrado resultados</span>
+          <span *ngIf="!spinner && totalPage === page">No more results</span>
+          <mat-icon *ngIf="firstSearch && page === 0">search</mat-icon>
+          <span *ngIf="firstSearch && page === 0">No results found</span>
      </div>
 </div>

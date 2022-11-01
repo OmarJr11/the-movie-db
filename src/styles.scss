@@ -47,6 +47,14 @@ span, p, h1, h2, h3, h4, h5 {
     height: 420px !important;
 }
 
+.h-400p {
+    height: 400px !important;
+}
+
+.h-268p {
+    height: 268px !important;
+}
+
 .h-300p {
     height: 300px !important;
 }
@@ -60,7 +68,7 @@ span, p, h1, h2, h3, h4, h5 {
     padding: 0px 60px !important;
 }
 
-.p-30 {
+.pd-30 {
     padding: 0px 30px !important;
 }
 
@@ -69,8 +77,12 @@ span, p, h1, h2, h3, h4, h5 {
     font-size: 15px !important;
 }
 
-.p-10 {
-    padding: 0px 10px !important;
+.pd-15 {
+    padding: 15px 15px !important;
+}
+
+.pd-10 {
+    padding: 10px 10px !important;
 }
 
 //Margin
@@ -115,6 +127,10 @@ span, p, h1, h2, h3, h4, h5 {
     font-size: 13px !important;
 }
 
+.text-14 {
+    font-size: 14px !important;
+}
+
 .text-15 {
     font-size: 15px !important;
 }
@@ -139,8 +155,20 @@ span, p, h1, h2, h3, h4, h5 {
     font-size: 28px !important;
 }
 
+.text-38 {
+    font-size: 38px !important;
+    line-height: 38px !important;
+    font-weight: 400 !important;
+}
+
 .text-42 {
     font-size: 42px !important;
+}
+
+.ellipsi {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
 }
 
 //CURSOR
