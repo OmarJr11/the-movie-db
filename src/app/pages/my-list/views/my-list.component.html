@@ -1,7 +1,7 @@
 <div class="w-100"
      fxLayout="column"
      fxLayoutAlign="start center"
-     fxLayoutGap="18px">
+     fxLayoutGap="41px">
      <h2 class="w-100 text-center">My list</h2>
      <div *ngIf="!spinner && !notMovies && movies.length > 0"
           class="w-82"
@@ -16,10 +16,18 @@
                </div>
           </div>
      </div>
-    <div class="spinner"
-         fxLayout="row"
+     <div *ngIf="!spinner && notMovies"
+          fxLayout="column"
+          fxLayoutAlign="start center"
+          fxLayoutGap="15px"
+          class="w-100 h-300p">
+          <mat-icon>bookmark-outlined</mat-icon>
+          <span class="text-15">There are no saved items</span>
+     </div>
+     <div class="spinner"
+           fxLayout="row"
          fxLayoutAlign="center center"
-         *ngIf="spinner && !notMovies">
+          *ngIf="spinner && !notMovies">
           <mat-spinner [diameter]="90"
                          [strokeWidth]="6">
           </mat-spinner>

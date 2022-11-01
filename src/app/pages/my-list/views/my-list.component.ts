@@ -51,6 +51,7 @@ export class MyListComponent implements OnInit {
       });
     } else {
       this.notMovies = true;
+      this.spinner = false;      
     }
   }
 
