@@ -3,22 +3,65 @@
 :host ::ng-deep {
     h2 {
         font-size: 26px !important;
-        margin-top: 30px !important;
+        margin-top: 12px !important;
+        margin-bottom: 12px !important;
     }
 
-    .w-82 {
-        width: 82% !important;
+    .movies-list {
+        width: 1200px !important;
+        padding: 0px 30px !important;
     }
+
+    .movies-list-md {
+        width: 900px !important;
+        padding: 0px 30px !important;
+    }
+
+    .movies-list-sm {
+        width: 580px !important;
+        padding: 0px 30px !important;
+
+        @media only screen and (min-width: 800px) and (max-width: 959px){
+            width: 740px !important;
+        }
+    }
+
+    .movies-list-xs {
+        width: 320px !important;
+        padding: 0px 18px !important;
+
+        @media only screen and (min-width: 500px) and (max-width: 599px){
+            width: 420px !important;
+        }
+    }
+
 
     .movie-card {
         width: 200px !important;
         height: 280px !important;
-        margin-left: 26px !important;
+        margin: 0px 0px 24px 24px !important;
         border-radius: 12px !important;
+    }
 
-        &:nth-child(5n + 1) {
-            margin-left: 0px !important;
-        }
+    .movie-card-md {
+        width: 180px !important;
+        height: 260px !important;
+        margin: 0px 0px 24px 24px !important;
+        border-radius: 12px !important;
+    }
+
+    .movie-card-sm {
+        width: 140px !important;
+        height: 200px !important;
+        margin: 0px 0px 24px 24px !important;
+        border-radius: 12px !important;
+    }
+
+    .movie-card-xs {
+        width: 80px !important;
+        height: 130px !important;
+        margin: 0px 0px 12px 12px !important;
+        border-radius: 12px !important;
     }
 
     .mb-26 {
@@ -26,9 +69,9 @@
     }
 
     .mat-icon {
-        width: 180px !important;
-        height: 180px !important;
-        font-size: 180px !important;
+        width: 170px !important;
+        height: 170px !important;
+        font-size: 170px !important;
         color: rgba(1, 179, 228, 0.377) !important;
     }
 

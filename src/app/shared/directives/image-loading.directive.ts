@@ -13,7 +13,7 @@ export class ImageLoadingDirective implements OnInit {
   @Input() loading: boolean = true;
 
   saveClass: string = '';
-  loadingSpinner = 'assets/images/icons/spinner.svg';
+  loadingSpinner = 'assets/images/spinner.svg';
 
   @HostBinding('attr.src') srcAttr!: string;
   @HostBinding('attr.class') class!: string;
@@ -23,8 +23,7 @@ export class ImageLoadingDirective implements OnInit {
   ngOnInit(): void {
     this.srcAttr = '';
     this.saveClass = this.elementRef.nativeElement.className;
-    
-    this.srcAttr = this.loading ? 'assets/images/spinner.svg' : '';
+    this.srcAttr = this.loading ? this.loadingSpinner : '';
   }
 
   @HostListener('load')

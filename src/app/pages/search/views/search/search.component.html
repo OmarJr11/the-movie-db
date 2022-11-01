@@ -4,18 +4,25 @@
      fxLayoutAlign="center center">
      <div fxLayout="row"
           fxLayoutAlign="center center"
-          class="h-85p">
+          ngClass="h-85p"
+          ngClass.xs="h-65p">
           <h3>Results of the search </h3>
      </div>
      <div fxLayout="row wrap"
           fxLayoutAlign="start center"
-          class="movies-search"
+          ngClass="movies-search"
+          ngClass.md="movies-search-md"
+          ngClass.sm="movies-search-sm"
+          ngClass.xs="movies-search-xs"
           infinite-scroll
           [infiniteScrollThrottle]="100"
           [infiniteScrollDistance]="1"
           (scrolled)="onScrollDown()">
           <div *ngFor="let movie of movies"
-               class="movie-card"
+               ngClass="movie-card"
+               ngClass.md="movie-card-md"
+               ngClass.sm="movie-card-sm"
+               ngClass.xs="movie-card-xs"
                (click)="goToMovie(movie)">
                <app-movie-card [movie]="movie" ></app-movie-card>
           </div>
