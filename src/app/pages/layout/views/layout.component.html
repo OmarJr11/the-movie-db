@@ -1,12 +1,15 @@
 <div class="container"
-     fxLayout="column">
+     fxLayout="column"
+     fxLayoutAlign="space-between start">
     <div class="header mat-elevation-z4"
          ngClass="header-container"
          ngClass.lt-md="header-container-lt-md"
          ngClass.xl="header-container-xl">
         <app-header></app-header>
     </div>
-    <div>
+    <div fxLayout="column"
+         fxFlex
+         class="w-100">
         <router-outlet></router-outlet>
     </div>
     <div class="w-100">

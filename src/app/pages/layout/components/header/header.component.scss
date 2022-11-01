@@ -111,11 +111,6 @@
         }
     }
 
-    .search-items {
-        display: list-item;
-        position: relative !important;
-    }
-
     .icon {
         width: 5% !important;
         height: 42px !important;
@@ -164,6 +159,8 @@
         padding: 0 !important;
         border-radius: 5px !important;
         padding: 2px 2px !important;
+        display: list-item;
+        position: relative !important;    
     }
 
     .search-item {
@@ -181,6 +178,8 @@
         border-radius: 5px !important;
         img {
             border-radius: 5px !important;
+            max-width: 45px;
+            min-width: 50px;
         }
     }
 }

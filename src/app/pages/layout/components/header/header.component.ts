@@ -82,6 +82,7 @@ export class HeaderComponent implements OnInit {
 
   searchAll(search: string) {
     this.spinner = true;
+    this.movies = [];
     this._subscription.add(
       this.apiTheMoviesDB.searchMulti(search, 1).subscribe({
         next: (response) => {
