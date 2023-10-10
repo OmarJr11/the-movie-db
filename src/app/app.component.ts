@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private _seo: SeoService) {}
 
   ngOnInit(): void {
-    this._seo.initSeoMetaTags();
+    //this._seo.initSeoMetaTags();
   }
 }
