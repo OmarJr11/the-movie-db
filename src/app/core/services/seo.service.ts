@@ -33,7 +33,7 @@ export class SeoService implements OnDestroy {
         const config: MetaDefinition = {
             title: 'Pyn Pon',
             description: 'this._translate',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Square_200x200.svg',
+            image: 'https://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg',
             slug: `https://themovieandtvserie.netlify.app/`,
         };
 
