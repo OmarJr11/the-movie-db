@@ -69,7 +69,7 @@ export class MovieDetailsComponent implements OnInit, DoCheck {
             title: this.movie.title,
             description: this.movie.tagline,
             image: this.searchImage(),
-            slug: this.movie.release_date,
+            slug: "https://themovieandtvserie.netlify.app/movie/" + this.movie.id,
           });
           this.getMoviesSimilar();
         }

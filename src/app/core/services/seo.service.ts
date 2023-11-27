@@ -36,7 +36,8 @@ export class SeoService implements OnDestroy {
             image: options.image || 'https://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg',
             slug: options.slug || `https://themovieandtvserie.netlify.app/`,
         };
-
+        console.log(config);
+        
         this._title.setTitle(config['title']);
 
         this._meta.updateTag({
@@ -59,6 +60,10 @@ export class SeoService implements OnDestroy {
         this._meta.updateTag({
             property: 'og:image',
             content: config['image'],
+        });
+        this._meta.updateTag({
+            property: 'og:image:type',
+            content: options.imageType || 'image/png',
         });
         this._meta.updateTag({
             property: 'og:url',
