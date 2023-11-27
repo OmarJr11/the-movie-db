@@ -51,7 +51,7 @@ export class SeoService implements OnDestroy {
         });
         this._meta.updateTag({
             property: 'og:title',
-            content: 'config.title',
+            content: config['title'],
         });
         this._meta.updateTag({
             property: 'og:description',
