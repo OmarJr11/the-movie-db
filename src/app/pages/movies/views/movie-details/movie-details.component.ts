@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { StorageService, TheMovieDbService } from 'src/app/core';
 import { StorageInterface } from 'src/app/core/models';
 import { Movie } from 'src/app/core/models/movie.model';
+import { SeoService } from 'src/app/core/services/seo.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -32,6 +33,7 @@ export class MovieDetailsComponent implements OnInit, DoCheck {
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _router: Router,
     private readonly _storageService: StorageService,
+    private readonly seoService: SeoService,
   ) { }
 
   ngDoCheck(): void {
@@ -63,6 +65,12 @@ export class MovieDetailsComponent implements OnInit, DoCheck {
             this.myList.push(...this.storage.myList);
             this.saved = this.myList.findIndex((movie) => Number(movie.id) === Number(this.movie.id)) !== -1;
           }
+          this.seoService.generateTags({
+            title: this.movie.title,
+            description: this.movie.tagline,
+            image: this.searchImage(),
+            slug: this.movie.release_date,
+          });
           this.getMoviesSimilar();
         }
       })

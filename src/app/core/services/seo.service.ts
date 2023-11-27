@@ -29,12 +29,12 @@ export class SeoService implements OnDestroy {
         );
     }
 
-    generateTags(): void {
+    generateTags(options?: any): void {
         const config: MetaDefinition = {
-            title: 'Pyn Pon',
-            description: 'this._translate',
-            image: 'https://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg',
-            slug: `https://themovieandtvserie.netlify.app/`,
+            title: options.title || 'Pyn Pon',
+            description: options.description || 'this._translate',
+            image: options.image || 'https://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg',
+            slug: options.slug || `https://themovieandtvserie.netlify.app/`,
         };
 
         this._title.setTitle(config['title']);
